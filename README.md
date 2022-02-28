@@ -5,16 +5,25 @@
  </h1>
 
 ## Project Idea and Description
+The Ballon d'Or is the highest individual honor in football/soccer, recognizing the best players.
 Next Best is a full CRUD application that provides the user the ability to view a player's stats and rankings in order to predict who they think will win the next coveted Ballon d'Or.
 
 ## Choice of API
 - https://www.api-football.com/
 - Need API KEY
 - Proof of Concept: 
+- Additional possible APIs:
+  - https://github.com/whyjay17/football_manager_api
+  - https://github.com/azharimm/football-standings-api  
+  - https://www.scorebat.com/video-api/
 
 ## ERDs
 
 ## RESTful Routing Chart
+| VERB          | URL PATTERN   | ACTION       | DESCRIPTION   |
+| ------------- | ------------- | ------------ | ------------- |
+| GET   | Content Cell  | Content Cell | Content Cell  | 
+| Content Cell  | Content Cell  | Content Cell | Content Cell  |
 
 ## Wireframes of User Views
 
@@ -34,4 +43,4 @@ Next Best is a full CRUD application that provides the user the ability to view 
 
 ## Stretch Goals
 [ ] Add widgets
-[ ] Add ability to watch video highlights
+[ ] Add ability to watch video highlights on homepage
