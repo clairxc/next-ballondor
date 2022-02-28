@@ -51,7 +51,7 @@ no idea if I did this correctly... also no idea if I can actually DO the work
 - [ ] Create a home page that lists all teams and all players
 - [ ] Create a nominees page
 - [ ] Create a page displaying specific player details/stats
-
+- [ ] Allow user to add "personal notes/comments" on each nominee
 
 ## Stretch Goals
 - [ ] Create a search bar/page
