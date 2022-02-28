@@ -18,14 +18,26 @@ Next Best is a full CRUD application that provides the user the ability to view 
   - https://www.scorebat.com/video-api/
 
 ## ERDs
+![image](https://user-images.githubusercontent.com/96402339/155942961-866163e4-e049-4b06-a44f-7490f9a41859.png)
+
 
 ## RESTful Routing Chart
-| VERB          | URL PATTERN   | ACTION       | DESCRIPTION   |
-| ------------- | ------------- | ------------ | ------------- |
-| GET   | Content Cell  | Content Cell | Content Cell  | 
-| Content Cell  | Content Cell  | Content Cell | Content Cell  |
+![image](https://user-images.githubusercontent.com/96402339/155938542-ecbb3208-cad6-4208-bda6-481abd873561.png)
+
 
 ## Wireframes of User Views
+- Welcome Page
+![image](https://user-images.githubusercontent.com/96402339/155942721-e5ce1165-bc88-40ba-9101-b59d299cc0ba.png)
+
+- Home Page
+![image](https://user-images.githubusercontent.com/96402339/155942734-d7217140-3ae0-4d3c-b9a7-9747097443a5.png)
+
+- Nominees Page
+![image](https://user-images.githubusercontent.com/96402339/155942742-61694fa4-06fd-4030-9656-a6091f3d46d3.png)
+
+- Nominees Detail Page
+![image](https://user-images.githubusercontent.com/96402339/155942756-8d199010-862a-4c15-ba7d-a7da45742072.png)
+
 
 ## User Stories
 - As a user, I want to predict and keep track of who I think will win the next ballon d'or 
@@ -34,13 +46,13 @@ Next Best is a full CRUD application that provides the user the ability to view 
 - As a user, I want to be able to view the team performances, rankings, player rankings, player statistics/details
 
 ## MVP goals
-[ ] Create a login page
-[ ] Create a sign up page
-[ ] Create a home page
-[ ] Create a nominees page
-[ ] Create a page displaying specific player details/stats
+- [ ] Create a welcome page that renders login/sign up
+- [ ] Create a home page that lists all teams and all players
+- [ ] Create a nominees page
+- [ ] Create a page displaying specific player details/stats
 
 
 ## Stretch Goals
-[ ] Add widgets
-[ ] Add ability to watch video highlights on homepage
+- [ ] Create a search bar/page
+- [ ] Add widgets
+- [ ] Add ability to watch video highlights on homepage
