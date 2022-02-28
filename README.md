@@ -18,7 +18,7 @@ Next Best is a full CRUD application that provides the user the ability to view 
   - https://www.scorebat.com/video-api/
 
 ## ERDs
-![image](https://user-images.githubusercontent.com/96402339/156045884-72cd2362-d2d7-455f-922c-eea15f6455cf.png)
+![image](https://user-images.githubusercontent.com/96402339/156059461-c98fcb3a-b5ac-485f-b559-bf7fd8e36591.png)
 
 
 ## RESTful Routing Chart
@@ -50,7 +50,7 @@ Next Best is a full CRUD application that provides the user the ability to view 
 - [ ] Create a home page that lists all teams and all players
 - [ ] Create a nominees page
 - [ ] Create a page displaying specific player details/stats
-- [ ] Allow user to add "personal notes/comments" on each nominee
+- [ ] Allow user to add "personal notes/comments" to each nominee
 
 ## Stretch Goals
 - [ ] Create a search bar/page
