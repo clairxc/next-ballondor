@@ -18,7 +18,7 @@ Next Best is a full CRUD application that provides the user the ability to view 
   - https://www.scorebat.com/video-api/
 
 ## ERDs
-![image](https://user-images.githubusercontent.com/96402339/156059461-c98fcb3a-b5ac-485f-b559-bf7fd8e36591.png)
+![image](https://user-images.githubusercontent.com/96402339/156067939-2ffc7b35-2b95-4864-9031-ac350398b9ae.png)
 
 
 ## RESTful Routing Chart
