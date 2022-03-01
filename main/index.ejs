@@ -1,0 +1,16 @@
+<h1>NEXT BEST</h1>
+
+<h2>My Nominees</h2>
+<hr />
+
+<% if (nominees.length < 1) { %>
+<h4>Pick your top nominees to see them here!</h4>
+<% } %> <% nominees.forEach(function(nominee) { %>
+<div class="card">
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="/nominees/<%= nominee.id %>"><%= nominee.name %></a>
+        </h2>
+    </div>
+</div>
+<% }); %>

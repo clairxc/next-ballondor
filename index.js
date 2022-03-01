@@ -44,37 +44,6 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-
-app.get('/leagues', (req, res) => {
-    // res.send('Hello leagues!')
-    const url = `https://v3.football.api-sports.io/leagues`
-    // console.log(url)
-    axios.get(url)
-      .then(response => {
-        console.log(response.data)
-        res.render('leagues.ejs', {
-          results: response.data
-        })
-      })
-  })
-    // const options = {
-    //   method: 'get',
-    //   url: 'https://v3.football.api-sports.io/leagues',
-    //   headers: {
-    //     'x-rapidapi-key': `${process.env.FOOTBALL_API_KEY}`,
-    //     'x-rapidapi-host': 'v3.football.api-sports.io'
-    //   }
-    // };
-    
-    // axios(options)
-    // .then(function (response) {
-    //   console.log(JSON.stringify(response.data.team))
-    // })
-    // .catch(function (error) {
-    //   console.log(error);
-    // })
-// })
-
 app.get('/teams', (req, res) => {
     res.send('Hello teams!')
 })
@@ -82,6 +51,16 @@ app.get('/teams', (req, res) => {
 app.get('/nominees', (req, res) => {
     res.send('Hello nominees!')
 })
+
+// check for an env PORT, otherwise use 8000
+const server = app.listen(process.env.PORT || 8000)
+
+// We can export this server to other servers like this
+module.exports = server;
+
+
+
+
 
 // const config = {
 //     method: 'get',
@@ -146,11 +125,3 @@ app.get('/nominees', (req, res) => {
 //     // console.log(error);
 //     // });
 // })
-
-
-
-// check for an env PORT, otherwise use 8000
-const server = app.listen(process.env.PORT || 8000)
-
-// We can export this server to other servers like this
-module.exports = server;
