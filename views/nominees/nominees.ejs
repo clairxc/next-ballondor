@@ -1,0 +1,13 @@
+<!-- purpose of this page is to retrieve all nominees and display them on the page -->
+
+<div class="nominee">
+    <h1 class="nominee">All My Nominees</h1>
+</div>
+
+<div class="nominees">
+    <% nominee.forEach(eachNominee => { %>
+        <p>
+            <a href="/nominees/<%= nominee.name %>"><%= eachNominee.name %> </a>
+        </p>
+    <% }) %>
+</div>

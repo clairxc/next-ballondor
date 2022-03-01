@@ -1,0 +1,33 @@
+{
+  "name": "next-ballondor",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   <img src=\"https://library.sportingnews.com/styles/crop_style_16_9_tablet_2x/s3/2021-08/ballon-dor_jdrcxk2gyy5v1qbj8784anq4a.jpg?itok=ZlNPtzCQ\">  </h1>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clairxc/next-ballondor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clairxc/next-ballondor/issues"
+  },
+  "homepage": "https://github.com/clairxc/next-ballondor#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.6",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "pg": "^8.7.3",
+    "request": "^2.88.2",
+    "sequelize": "^6.17.0"
+  }
+}

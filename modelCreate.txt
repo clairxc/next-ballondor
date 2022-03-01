@@ -1,0 +1,11 @@
+// user model
+sequelize model:create --name user --attributes email:string,password:string
+
+// player model
+sequelize model:create --name player --attributes name:string,league:string,team:string
+
+// comment model
+sequelize model:create --name comment --attributes comment:text
+
+//join table
+sequelize model:create --name user_player --attributes userId:integer,playerId:integer,name:string,league,string,team:string

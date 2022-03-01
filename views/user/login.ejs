@@ -1,0 +1,14 @@
+<% if (error) { %>
+    <em><%= error %></em>
+<% } %>
+
+<form action="/user/login" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email">
+    <!-- if name was burrito, we would use req.body.burrito in our route-->
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password">
+
+    <button type="submit">Log In</button>
+</form>
