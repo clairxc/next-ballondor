@@ -11,11 +11,11 @@ router.get('/', (req, res) => {
     console.log(process.env.FOOTBALL_API_KEY)
     const options = {
       method: 'get',
-      url: 'https://v1.basketball.api-sports.io/games?season=2021&team=clippers',
+      url: 'https://v3.football.api-sports.io/players?league=39',
     //   qs: {league: '39'},
       headers: {
         'x-rapidapi-key': `${process.env.FOOTBALL_API_KEY}`,
-        'x-rapidapi-host': 'v3.basketball.api-sports.io'
+        'x-rapidapi-host': 'v3.football.api-sports.io'
       }
     }
     

@@ -1,19 +1,6 @@
-<h2>Display teams information here</h2>
-
-<h2><%= name %></h2>
-
-<div class="container">
-    <img src="<%= team.logo %>" />
-    <p>Team Name: <%= team.name %></p>
-    <p>Country: <%= team.country %></p>
-    <p>Founded: <%= team.founded %></p>
-    <form method="POST" action="/leagues/<%= leagues %>?_method=DELETE">
-        <input hidden type="text" name="name" value="<%= leagues %>">
-        <button class="btn btn-danger" type="submit">Delete Me</button>
-    </form>
-</div>
+<h2>Display all teams in league</h2>
 <ul>
-    <% leagues.forEach(league => { %>
-        <li><a href="/teams?i=<%=team%>"><%=team%></a></li>
+    <% results.forEach(result => { %>
+        <li><a href="/search_all_teams.php?l=<%=result.English%20Premier%20League%>"><%= result.name%></a></li>
     <% }) %>
 </ul>

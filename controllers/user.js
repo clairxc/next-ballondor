@@ -6,10 +6,10 @@ const cryptojs = require('crypto-js')
 require('dotenv').config() // this is so that our .process.env.SECRET works
 
 
-// GET profile page
-router.get('/profile', (req, res) => {
-    res.render('user/profile.ejs')
-})
+// // GET profile page
+// router.get('/profile', (req, res) => {
+//     res.render('user/profile.ejs')
+// })
 
 
 router.get('/new', (req, res) => {

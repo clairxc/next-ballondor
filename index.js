@@ -36,8 +36,10 @@ app.use(async (req, res, next) => {
 
 // CONTROLLERS
 app.use('/user', require('./controllers/user.js'))
-app.use('/leagues', require('./controllers/leagues.js'))
+app.use('/user/leagues', require('./controllers/leagues.js'))
+app.use('/teams', require('./controllers/teams.js'))
 app.use('/players', require('./controllers/players.js'))
+app.use('/nominees', require('./controllers/nominees.js'))
 
 
 // // ROUTES
@@ -46,13 +48,7 @@ app.get('/', (req, res) => {
     res.render('home.ejs')
 })
 
-app.get('/teams', (req, res) => {
-    res.send('Hello teams!')
-})
 
-app.get('/nominees', (req, res) => {
-    res.send('Hello nominees!')
-})
 
 // check for an env PORT, otherwise use 8000
 const server = app.listen(process.env.PORT || 8000)
