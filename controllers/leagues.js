@@ -1,10 +1,10 @@
-const express = require('express')
-const router = express.Router()
-const db = require('../models')
-const bcrypt = require('bcrypt')
-const cryptojs = require('crypto-js')
-const axios = require('axios')
-require('dotenv').config() // this is so that our .process.env.SECRET works
+const express = require("express");
+const router = express.Router();
+const db = require("../models");
+const bcrypt = require("bcrypt");
+const cryptojs = require("crypto-js");
+const axios = require("axios");
+require("dotenv").config(); // this is so that our .process.env.SECRET works
 
 // router.get('/', (req, res) => {
 //   const url = `https://www.thesportsdb.com/api/v1/json/2/search_all_leagues.php?s=Soccer`
@@ -18,16 +18,65 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 //       })
 // })
 
-// premier league
-router.get('/', (req, res) => {
-  const url = `https://www.thesportsdb.com/api/v1/json/2/all_leagues.php`
-  axios.get(url)
-    .then(response => {
-      console.log(response.data)
-    })
-    res.render('leagues/leagues.ejs')
-})
+// router.get('/', (req, res) => {
+//   const url = `https://www.thesportsdb.com/api/v1/json/2/all_leagues.php`
+//   axios.get(url)
+//     .then(response => {
+//       console.log(response.data)
+//     })
+//     res.render('leagues/leagues.ejs')
+// })
 
+// router.get('/', (req, res) => {
+//   const url = `https://www.thesportsdb.com/api/v1/json/2/?s=${req.query.search}`
+//   axios.get(url)
+//     .then(response => {
+//       console.log(response.data)
+//     })
+//     res.render('leagues/leagues.ejs')
+// })
+
+// top 5 leagues
+// router.get("/", (req, res) => {
+//   // console.log(req.query.q)
+//   const url = `https://www.thesportsdb.com/api/v1/json/2/all_leagues.php`;
+//   // console.log(url)
+//   axios.get(url).then((response) => {
+//     // console.log(response.data.Search)
+//     const leagues = [...response.data.leagues];
+//     const soccerLeagues = [];
+//     leagues.forEach((league) => {
+//       if (league.strSport === "Soccer" && league.idLeague === '4328') {
+//         soccerLeagues.push(league);
+//       }
+//     });
+//     res.render("leagues/leagues.ejs", {
+//       soccerLeagues,
+//     });
+//   });
+// });
+
+router.get("/", (req, res) => {
+  // console.log(req.query.q)
+  const url = `https://www.thesportsdb.com/api/v1/json/2/all_leagues.php`;
+  // console.log(url)
+  axios.get(url).then((response) => {
+    // console.log(response.data.Search)
+    const leagues = [...response.data.leagues];
+    const soccerLeagues = [];
+    leagues.forEach((league) => {
+      if (league.idLeague === '4331' || league.idLeague === '4328' || league.idLeague === '4332' || league.idLeague === '4334' || league.idLeague === '4335') {
+        soccerLeagues.push(league);
+      }
+    });
+    res.render("leagues/leagues.ejs", {
+      soccerLeagues,
+    });
+  });
+});
+
+// export all these routes to the entry point file
+module.exports = router;
 
 // router.get('/', (req, res) => {
 //     const options = {
@@ -38,7 +87,7 @@ router.get('/', (req, res) => {
 //         'x-rapidapi-host': 'v3.football.api-sports.io'
 //       }
 //     };
-    
+
 //     axios(options)
 //     .then(function (response) {
 //       console.log(response.data.response)
@@ -50,6 +99,3 @@ router.get('/', (req, res) => {
 //       console.log(error);
 //     })
 // })
-
-// export all these routes to the entry point file
-module.exports = router

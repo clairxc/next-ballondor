@@ -12,18 +12,34 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 //     res.send('Hello teams!')
 // })
 
-router.get('/', (req, res) => {
-    const url = `https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League`
-    axios.get(url)
-      .then(response => {
-        // console.log(response.data)
-        const searchResults = response.data
-        res.render('teams/teams.ejs', {
-            results: searchResults
-        })
-      })
-  })
+// premier league
+router.get("/", (req, res) => {
+  // console.log(req.query.q)
+  const url = `https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=English%20Premier%20League`;
+  // console.log(url)
+  axios.get(url).then((response) => {
+    // console.log(response.data.Search)
+    const teams = [...response.data.teams];
+    const leagueTeams = [];
+      leagueTeams.push(team)
+    });
+    res.render("teams/teams.ejs", {
+      // leagueTeams,
+    });
+  });
 
+
+// router.get('/', (req, res) => {
+//     const url = `https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php`
+//     axios.get(url)
+//       .then(response => {
+//         // console.log(response.data)
+//         const searchResults = response.data
+//         res.render('teams/teams.ejs', {
+//             results: searchResults
+//         })
+//       })
+//   })
 
 //   
 module.exports = router

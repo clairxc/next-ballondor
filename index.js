@@ -36,7 +36,7 @@ app.use(async (req, res, next) => {
 
 // CONTROLLERS
 app.use('/user', require('./controllers/user.js'))
-app.use('/user/leagues', require('./controllers/leagues.js'))
+app.use('/leagues', require('./controllers/leagues.js'))
 app.use('/teams', require('./controllers/teams.js'))
 app.use('/players', require('./controllers/players.js'))
 app.use('/nominees', require('./controllers/nominees.js'))

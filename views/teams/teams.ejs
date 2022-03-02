@@ -1,6 +1,17 @@
-<h2>Display all teams in league</h2>
-<ul>
-    <% results.forEach(result => { %>
-        <li><a href="/search_all_teams.php?l=<%=result.English%20Premier%20League%>"><%= result.name%></a></li>
-    <% }) %>
-</ul>
+
+<div>
+    <form method="GET" action="/teams">
+        <label for="search">Search:</label>
+        <input type="text" id="search" placeholder="search here" name="searchTeams"/>
+        <input type="submit"/>
+    </form>
+</div>
+
+<h2>Display all teams in searched l</h2>
+
+<% leagueTeams.forEach(team => { %>
+    <div>
+      <h3><%= team.strTeam %></h3>
+      <a href="/teams/<%= team.idLeague === '4328' %>">click here</a>
+    </div>
+<% }) %>
