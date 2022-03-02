@@ -5,7 +5,7 @@ sequelize model:create --name user --attributes email:string,password:string
 sequelize model:create --name nominee --attributes name:string,league:string,team:string
 
 // note model
-sequelize model:create --name note --attributes comment:text
+sequelize model:create --name note --attributes comment:text,userId:integer,playerId:integer
 
 //join table
 sequelize model:create --name user_nominee --attributes userId:integer,playerId:integer

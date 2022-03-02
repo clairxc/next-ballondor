@@ -3,7 +3,10 @@ const router = express.Router()
 const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js')
+const axios = require('axios')
 require('dotenv').config() // this is so that our .process.env.SECRET works
+
+
 
 // GET /nominees - return a page with nominees 
 router.get('/', async (req, res) => {
@@ -36,7 +39,7 @@ router.get('/', async (req, res) => {
   });
 
 
-  // DELETE A Pokemon 
+  // DELETE A nominee 
 router.delete("/:name", (req,res) => {
   db.nominee.destroy({
       where: {name: req.params.name}

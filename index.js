@@ -36,6 +36,8 @@ app.use(async (req, res, next) => {
 
 // CONTROLLERS
 app.use('/user', require('./controllers/user.js'))
+app.use('/leagues', require('./controllers/leagues.js'))
+app.use('/players', require('./controllers/players.js'))
 
 
 // // ROUTES

@@ -11,9 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      models.note.belongsTo(models.user)
+      models.note.belongsTo(models.nominee)
     }
   }
   note.init({
+    userId: DataTypes.INTEGER,
+    playerId: DataTypes.INTEGER,
     comment: DataTypes.TEXT
   }, {
     sequelize,

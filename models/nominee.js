@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.user.hasMany(models.note)
+      // one nominee can have many notes
+      models.nominee.hasMany(models.note)
+      //
+      models.nominee.belongsToMany(models.user, { through: 'user_nominee '})
     }
   }
   nominee.init({

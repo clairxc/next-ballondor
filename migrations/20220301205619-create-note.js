@@ -11,6 +11,12 @@ module.exports = {
       comment: {
         type: Sequelize.TEXT
       },
+      userId: {
+        type: Sequelize.INTEGER
+      },
+      playerId: {
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
