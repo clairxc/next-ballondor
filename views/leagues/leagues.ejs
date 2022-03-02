@@ -9,11 +9,11 @@
 </div>
 
 <h1>League Results:</h1>
-
+<!-- when user clicks on a league, user should be taken to a page that displays all the teams in that specific league -->
 <% soccerLeagues.forEach(league => { %>
     <div>
       <h3><%= league.strLeague %></h3>
-      <a href="/leagues/<%= league.idLeague === '4328' %>">click here</a>
+      <a href="/teams<%= league.idLeague === '4328' %>">click here</a>
     </div>
 <% }) %>
 
