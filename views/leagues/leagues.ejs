@@ -13,7 +13,7 @@
 <% soccerLeagues.forEach(league => { %>
     <div>
       <h3><%= league.strLeague %></h3>
-      <a href="/teams<%= league.idLeague === '4328' %>">click here</a>
+      <a href="/user/teams/<%= league.strLeague %>">View All Teams</a>
     </div>
 <% }) %>
 
