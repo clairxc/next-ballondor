@@ -1,1 +1,8 @@
-<h2>Display list of players here</h2>
+<h2>Display all players in this specific team here</h2>
+
+<% leagueTeams.forEach(team => { %>
+    <div>
+      <h3><%= player.name %></h3>
+      <a href="/user/teams/<%= player.name %>">click here for player details</a>
+    </div>
+<% }) %>

@@ -56,6 +56,8 @@ require("dotenv").config(); // this is so that our .process.env.SECRET works
 //   });
 // });
 
+// able to finally call something back from api
+// thank you jason
 router.get("/", (req, res) => {
   // console.log(req.query.q)
   const url = `https://www.thesportsdb.com/api/v1/json/2/all_leagues.php`;

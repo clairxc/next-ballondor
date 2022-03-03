@@ -57,6 +57,8 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 //   });
 // });
 
+// this allows me not to hard code the links in!!!!!
+// highlight-- thank you april
 router.get("/:name", (req, res) => {
   // console.log(req.query.q)
   const url = `https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?l=${req.params.name}`;
