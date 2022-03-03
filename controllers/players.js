@@ -9,14 +9,14 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 
 router.get("/:name", (req, res) => {
   // console.log(req.query.q)
-  const url = `https://www.thesportsdb.com/api/v1/json/2/lookup_all_players.php?l=${req.params.name}`; // fix this url when i get api key
+  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?t=${req.params.name}`; // fix this url when i get api key
   console.log(url)
   const teamPlayers = [];
   axios.get(url).then((response) => {
     console.log(response)
-    const players = [...response.data.players];
-    // // console.log(players)
-    players.forEach((player) => {
+    const player = [...response.data.player];
+    // // console.log(player)
+    player.forEach((player) => {
       teamPlayers.push({
         name: player.strPlayer
       });
