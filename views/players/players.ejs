@@ -3,6 +3,6 @@
 <% teamPlayers.forEach(player => { %>
     <div>
       <h3><%= player.name %></h3>
-      <a href="/user/teams/<%= player.name %>">Player Details</a>
+      <a href="/players/<%= player.team %>/<%= player.name %>">Player Details</a>
     </div>
 <% }) %>

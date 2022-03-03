@@ -6,10 +6,10 @@ const cryptojs = require('crypto-js')
 const axios = require('axios')
 require('dotenv').config() // this is so that our .process.env.SECRET works
 
-
+// GET all players in specific league and display on player.ejs
 router.get("/:name", (req, res) => {
   // console.log(req.query.q)
-  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?t=${req.params.name}`; // fix this url when i get api key
+  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?t=${req.params.name}`;
   console.log(url)
   const teamPlayers = [];
   axios.get(url).then((response) => {
@@ -17,8 +17,10 @@ router.get("/:name", (req, res) => {
     const player = [...response.data.player];
     // // console.log(player)
     player.forEach((player) => {
+      console.log(player)
       teamPlayers.push({
-        name: player.strPlayer
+        name: player.strPlayer,
+        team: player.strTeam
       });
     })
     // console.log(teamPlayers)
@@ -29,8 +31,38 @@ router.get("/:name", (req, res) => {
   });
 })
 
-// create new route to playerdetail.ejs
+// GET one individual player create new route to playerdetail.ejs
+router.get("/:teamname/:playername", (req, res) => {
+  // console.log(req.query.q)
+  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${req.params.playername}`;
+  console.log(url)
+  axios.get(url).then((response) => {
+    console.log(response.data.player)
+    const details = response.data.player[0]
+    
+    // console.log(playerDetails)
+    // // res.send(playerDetails)
+    res.render("players/playerdetails.ejs", {
+      details: details
+    });
+  });
+})
 
+
+// router.get("/:name", (req, res) => {
+//   // console.log(req.query.q)
+//   let playerName = req.params.name
+//   axios.get(`https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?t=${[playerName]}`)
+//   .then(response => {
+//     let imgSrc = response.data.player.strThumb
+//     let name = response.data.player.strPlayer
+//     let team = response.data.player.strTeam
+//     let nationality = response.data.player.strNationality
+
+//     res.render("players/playerdetails.ejs", {
+//       src:imgSrc, name, team, nationality})
+//     });
+//   });
 
 module.exports = router
 
