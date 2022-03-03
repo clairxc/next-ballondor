@@ -4,6 +4,7 @@ const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js')
 const axios = require('axios')
+const req = require('express/lib/request')
 require('dotenv').config() // this is so that our .process.env.SECRET works
 
 // router.get('/', (req, res) => {
@@ -49,6 +50,44 @@ router.post('/', async (req, res) => {
   }
   // res.send(req.body)
 })
+
+
+// need to be able to add notes
+// add a notes section to the already displayed data
+router.post('/', (req, res) => {
+  db.note.findOrCreate({
+    where: {
+      comment: req.body.note
+    }
+  })
+  .then(([note, noteCreated]) => {
+    nominee.addNote(note)
+    .then(() => {
+      res.redirect('/')
+    })
+  })
+  .catch((error) => {
+    res.status(400).render('main/404')
+  })
+})
+// router.put('/', async (req, res) => {
+//   try {
+//     const notes = await db.note.findOne({
+//       where: {
+//         id: req.params.name,
+//       }
+//     })
+//     notes.update){
+//       comment: rem
+//     }
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
+
+
+
+
 
 // DELETE a nominee
 router.delete('/:name', (req, res) => {

@@ -30,33 +30,6 @@ router.get("/:name", (req, res) => {
 })
 
 
-// not sure if this works yet, need to test
-// post route that will receive the name of player and add it to nominee db and redirect to /nominees
-router.post('/', async (req, res) => {
-  try{
-    await db.nominee.create({
-      name: req.body.name
-    })
-    res.redirect('/nominees') // this should redirect back to nominees route
-  } catch (error) {
-    console.log(error)
-  }
-  // res.send(req.body)
-})
-
-// delete a nominee
-router.delete('/:name', (req, res) => {
-  db.nominee.destroy({
-    where: { name: req.params.name }
-  }) .then( deletedNominee => {
-    console.log(deletedNominee)
-    res.redirect('/nominees')
-  }).catch(err => {
-    console.log(err)
-  })
-})
-
-
 
 module.exports = router
 
