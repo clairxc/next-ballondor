@@ -29,6 +29,7 @@ router.get("/:name", (req, res) => {
   });
 })
 
+// create new route to playerdetail.ejs
 
 
 module.exports = router
