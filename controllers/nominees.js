@@ -14,17 +14,21 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 
 // GET /nominees - read/return a page with all nominees 
 router.get('/', async (req, res) => {
+  if (res.locals.user) {
     // TODO: Get all records from the DB and render to view
     try {
-      const allNominees = await db.nominee.findAll()
+      const allNominees = await res.locals.user.getNominees()
+      console.log('lksdjflkasjdflkajsdlkfjalskdjf')
+      console.log(allNominees)
       // res.json(allNominees) -- would use this if we were only trying to get the data back
       res.render('nominees/nominees.ejs', { 
         // res.render would "display" the data vs res.json which just gives the raw data
-        nominee: allNominees
+        nominees: allNominees
       })
     } catch (error) {
       console.log(error)
     }
+  }
     // res.send('Render a page of nominees here');
   });
 
@@ -41,34 +45,42 @@ router.get('/', async (req, res) => {
 
 // POST route that will receive the name of player and add it to nominee db and redirect to /nominees
 router.post('/', async (req, res) => {
-  try{
-    const [nominee, nomineeCreated] = await db.nominee.findOrCreate({
-      where: {
-        name: req.body.name,
-        team: req.body.team
-      },
-      // include: [db.user]
-    })
-    const localUser = res.locals.user
-    console.log(nominee,'is this thing working')
-    // await localUser.addNominee(nominee)
-    res.redirect('/user/nominees') // this should redirect back to nominees route
-  } catch (error) {
-    console.log(error)
+  if (res.locals.user) {
+    try{
+      const [nominee, nomineeCreated] = await db.nominee.findOrCreate({
+        where: {
+          name: req.body.name,
+          team: req.body.team
+        },
+      })
+      nominee.addUser(res.locals.user)
+      const localUser = res.locals.user
+      console.log(nominee,'is this thing working')
+      // await localUser.addNominee(nominee)
+      res.redirect('/user/nominees') // this should redirect back to nominees route
+    } catch (error) {
+      console.log(error)
+    }
+  } else {
+    res.redirect('/users/login')
   }
 })
 
 
 // GET nominee details (should display same information as playerdetails.ejs)
-router.get("/:teamname/:playername", (req, res) => {
+router.get("/:nomineeId", async (req, res) => {
   // console.log(req.query.q)
-  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${req.params.playername}`;
+  const nominee = await db.nominee.findByPk(req.params.nomineeId)
+  // console.log(nominee)
+
+  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${nominee.name}`;
   console.log(url)
   axios.get(url).then((response) => {
     console.log(response.data.player)
     const details = response.data.player[0]
     res.render("nominees/nomineedetails.ejs", {
-      details: details
+      details: details,
+      nominee: nominee
     });
   });
 })
@@ -88,11 +100,12 @@ router.get("/:teamname/:playername", (req, res) => {
 
 // DELETE specific nominee
 // ther might be an issue with this due to how its set up-- bc its set up to delete based on the playername and not the id
-router.delete("/:teamname/:playername", async (req, res) => {
+router.delete("/:nomineeId", async (req, res) => {
   try {
-    const foundNominee = await db.nominee.findOne({
+    const foundNominee = await db.user_nominee.findOne({
       where: {
-        name: req.params.playername
+        userId: res.locals.user.id,
+        nomineeId: req.params.nomineeId
       }
     })
     await foundNominee.destroy()

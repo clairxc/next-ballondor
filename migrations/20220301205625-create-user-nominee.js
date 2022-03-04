@@ -11,7 +11,7 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER
       },
-      playerId: {
+      nomineeId: {
         type: Sequelize.INTEGER
       },
       createdAt: {

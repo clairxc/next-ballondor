@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   user_nominee.init({
     userId: DataTypes.INTEGER,
-    playerId: DataTypes.INTEGER
+    nomineeId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'user_nominee',

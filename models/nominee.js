@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       // one nominee can have many notes
       models.nominee.hasMany(models.note)
       //
-      models.nominee.belongsToMany(models.user, { through: 'user_nominee '})
+      models.nominee.belongsToMany(models.user, { through: 'user_nominees'})
     }
   }
   nominee.init({
