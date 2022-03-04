@@ -6,6 +6,10 @@ const cryptojs = require('crypto-js')
 const axios = require('axios')
 require('dotenv').config() // this is so that our .process.env.SECRET works
 
+// EXTRA: GET all players in top 5 leagues to show when user clicks PLAYERS in nav bar
+
+
+
 // GET all players in specific league and display on player.ejs
 router.get("/:name", (req, res) => {
   // console.log(req.query.q)
@@ -39,15 +43,23 @@ router.get("/:teamname/:playername", (req, res) => {
   axios.get(url).then((response) => {
     console.log(response.data.player)
     const details = response.data.player[0]
-    
-    // console.log(playerDetails)
-    // // res.send(playerDetails)
     res.render("players/playerdetails.ejs", {
       details: details
     });
   });
 })
 
+// POST
+// router.post('/:teamname/:playername', async (req, res) => {
+//   try {
+//     await db.nominee.create({
+//       name: req.body.name
+//     })
+//     res.redirect('/nominees')
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
 
 // router.get("/:name", (req, res) => {
 //   // console.log(req.query.q)

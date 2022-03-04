@@ -1,70 +1,44 @@
 <h2>Display all details for specific player here</h2>
 
-
-<div> 
-    <img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" >
-</div>
-
-<div>
-    <form method="POST" action="/user/nominees">
-        <input hidden type="text" name="name" value="<%= details['strPlayer'] %>">
-        <input hidden type="text" name="league" value="<%= details['strLeague'] %>">
-        <input hidden type="text" name="team" value="<%= details['strTeam'] %>">
-        <button class="btn btn-primary" type="submit">Add to Nominees List</button>
-    </form>
-</div>
-
 <ul class="details">
+    <li> 
+        <img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" >
+    </li>
     <li> Name:
         <%= details['strPlayer'] %>
     </li>
-
     <li> Nationality: 
         <%= details['strNationality'] %>
     </li>
-
     <li> Date of Birth:
         <%= details['dateBorn'] %>
     </li>
-
-    <li> League: 
-        <%= details['strLeague'] %>
-    </li>
-
     <li> Team:
         <%= details['strTeam', 'strNumber'] %>
     </li>
-
     <li> Position:
         <%= details['strSide','strPosition'] %>
     </li>
-
     <li> Height:
         <%= details['strHeight'] %>
     </li>
-
     <li> Weight:
         <%= details['strWeight'] %>
     </li>
-
     <li> Date Signed:
         <%= details['dateSigned'] %>
     </li>
-
     <li> Wage:
         <div>
             <%= details['strWage'] %>
         </div>
     </li>
-
     <li> Background Info:
         <div>
             <%= details['strDescriptionEN'] %>
         </div>
     </li>
-
     <li> Social Media:
-        <a href="<%= details['strInstagram'] %>">
+        <%= details['strFacebook','strTwitter','strInstagram'] %>
     </li>
-
 </ul>

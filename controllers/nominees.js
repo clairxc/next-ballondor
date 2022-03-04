@@ -41,35 +41,57 @@ router.get('/', async (req, res) => {
 // post route that will receive the name of player and add it to nominee db and redirect to /nominees
 router.post('/', async (req, res) => {
   try{
-    await db.nominee.create({
-      name: req.body.name
+    const [nominee, nomineeCreated] = await db.nominee.findOrCreate({
+      where: {
+        name: req.body.name,
+        league: req.body.league,
+        team: req.body.team
+      },
+      // include: [db.user]
     })
-    res.redirect('/nominees') // this should redirect back to nominees route
+    const localUser = res.locals.user
+    console.log(nominee,'asdfasdfasdfasdf')
+    // await localUser.addNominee(nominee)
+    res.redirect('/user/nominees') // this should redirect back to nominees route
   } catch (error) {
     console.log(error)
   }
-  // res.send(req.body)
 })
+
+// GET nominee details (same as player details)
+// router.get("/:teamname/:playername", (req, res) => {
+//   // console.log(req.query.q)
+//   const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${req.params.playername}`;
+//   console.log(url)
+//   axios.get(url).then((response) => {
+//     console.log(response.data.player)
+//     const details = response.data.player[0]
+//     res.render("players/playerdetails.ejs", {
+//       details: details
+//     });
+//   });
+// })
 
 
 // need to be able to add notes
-// add a notes section to the already displayed data
-router.post('/', (req, res) => {
-  db.note.findOrCreate({
-    where: {
-      comment: req.body.note
-    }
-  })
-  .then(([note, noteCreated]) => {
-    nominee.addNote(note)
-    .then(() => {
-      res.redirect('/')
-    })
-  })
-  .catch((error) => {
-    res.status(400).render('main/404')
-  })
-})
+// // add a notes section to the already displayed data
+// router.post('/', (req, res) => {
+//   db.note.findOrCreate({
+//     where: {
+//       comment: req.body.note
+//     }
+//   })
+//   .then(([note, noteCreated]) => {
+//     nominee.addNote(note)
+//     .then(() => {
+//       res.redirect('/')
+//     })
+//   })
+//   .catch((error) => {
+//     res.status(400).render('main/404')
+//   })
+// })
+
 // router.put('/', async (req, res) => {
 //   try {
 //     const notes = await db.note.findOne({
@@ -84,8 +106,6 @@ router.post('/', (req, res) => {
 //     console.log(error)
 //   }
 // })
-
-
 
 
 

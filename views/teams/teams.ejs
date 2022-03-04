@@ -1,14 +1,15 @@
 
-<div>
+<!-- <div>
     <form method="GET" action="/teams">
         <label for="search">Search:</label>
         <input type="text" id="search" placeholder="search here" name="searchTeams"/>
         <input type="submit"/>
     </form>
-</div>
+</div> -->
 
 <h2>Display all teams in specific league</h2>
 
+<h2>need to figure out a way to get the data league info to change... or else dont use this</h2>
 <div id="wg-api-football-standings"
     data-host="v3.football.api-sports.io"
     data-league="39"
@@ -26,7 +27,7 @@
 <% leagueTeams.forEach(team => { %>
     <div>
       <h3><%= team.name %></h3>
-      <a href="/user/players/<%= team.name %>">View All Players in Team</a>
+      <a href="/players/<%= team.name %>">View All Players in Team</a>
     </div>
 <% }) %>
 
