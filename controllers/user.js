@@ -12,8 +12,13 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 // })
 
 
-router.get('/new', (req, res) => {
+router.get('/', (req, res) => {
     res.render('user/new.ejs')
+})
+
+// sign up route
+router.get('/signup', (req, res) => {
+    res.render('user/new.ejs', {error: null})
 })
 
 // sign up route
