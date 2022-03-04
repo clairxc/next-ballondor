@@ -8,7 +8,6 @@
 <div>
     <form method="POST" action="/user/nominees">
         <input hidden type="text" name="name" value="<%= details['strPlayer'] %>">
-        <input hidden type="text" name="league" value="<%= details['strLeague'] %>">
         <input hidden type="text" name="team" value="<%= details['strTeam'] %>">
         <button class="btn btn-primary" type="submit">Add to Nominees List</button>
     </form>
@@ -36,7 +35,7 @@
     </li>
 
     <li> Position:
-        <%= details['strSide','strPosition'] %>
+        <%= details['strSide'] +' '+ details['strPosition'] %>
     </li>
 
     <li> Height:
@@ -63,8 +62,8 @@
         </div>
     </li>
 
-    <li> Social Media:
-        <a href="<%= details['strInstagram'] %>">
+    <li> 
+    <a href="https://<%= details['strInstagram'] %>">Social Media:</a>
     </li>
 
 </ul>
