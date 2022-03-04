@@ -7,7 +7,7 @@
 <div class="nominees">
     <% nominee.forEach(eachNominee => { %>
         <p>
-            <a href="/nominees/<%= nominee.name %>"><%= eachNominee.name %> </a>
+            <a href="/user/nominees/<%= eachNominee.team %>/<%= eachNominee.name %>"><%= eachNominee.name %> </a>
         </p>
     <% }) %>
 </div>

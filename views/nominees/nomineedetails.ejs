@@ -1,9 +1,8 @@
 <h2>Display all details for specific player here</h2>
 
+<img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" >
+
 <ul class="details">
-    <li> 
-        <img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" >
-    </li>
     <li> Name:
         <%= details['strPlayer'] %>
     </li>
@@ -38,7 +37,18 @@
             <%= details['strDescriptionEN'] %>
         </div>
     </li>
-    <li> Social Media:
-        <%= details['strFacebook','strTwitter','strInstagram'] %>
+    <li> Link to:
+        <a href="https://<%= details['strInstagram'] %>">Instagram</a>
     </li>
 </ul>
+
+<!-- text form -->
+<div class="form-group">
+    <label for="notes">Add Your Notes Here</label>
+    <textarea type="text" class="form-control" id="notes" name="notes" required></textarea>
+</div>
+
+<!-- delete button -->
+<form action="/user/nominees/<%= eachNominee.name %>/?_method=DELETE" method="post">
+    <button type="submit">Delete</button>
+</form>

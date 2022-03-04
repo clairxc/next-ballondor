@@ -37,8 +37,8 @@ router.get('/', async (req, res) => {
 //   }
 // })
 
-// not sure if this works yet, need to test
-// post route that will receive the name of player and add it to nominee db and redirect to /nominees
+
+// POST route that will receive the name of player and add it to nominee db and redirect to /nominees
 router.post('/', async (req, res) => {
   try{
     const [nominee, nomineeCreated] = await db.nominee.findOrCreate({
@@ -58,18 +58,18 @@ router.post('/', async (req, res) => {
 })
 
 // GET nominee details (same as player details)
-// router.get("/:teamname/:playername", (req, res) => {
-//   // console.log(req.query.q)
-//   const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${req.params.playername}`;
-//   console.log(url)
-//   axios.get(url).then((response) => {
-//     console.log(response.data.player)
-//     const details = response.data.player[0]
-//     res.render("players/playerdetails.ejs", {
-//       details: details
-//     });
-//   });
-// })
+router.get("/:teamname/:playername", (req, res) => {
+  // console.log(req.query.q)
+  const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${req.params.playername}`;
+  console.log(url)
+  axios.get(url).then((response) => {
+    console.log(response.data.player)
+    const details = response.data.player[0]
+    res.render("nominees/nomineedetails.ejs", {
+      details: details
+    });
+  });
+})
 
 
 // need to be able to add notes

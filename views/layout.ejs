@@ -21,13 +21,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="/user/login">Log In</a>
-                    <a class="nav-link" href="/user/new">Sign Up</a>
+                    <% if(user) { %>
                     <a class="nav-link" href="/leagues">Leagues</a>
                     <a class="nav-link" href="/teams/">Teams</a>
                     <a class="nav-link" href="/players">Players</a>
                     <a class="nav-link" href="/user/nominees">Nominees</a>
                     <a class="nav-link" href="/user/logout">Logout</a>
+                    <% } else { %>
+                    <a class="nav-link" href="/user/login">Log In</a>
+                    <a class="nav-link" href="/user/new">Sign Up</a>
+                    <% } %>
                     <!-- need to use squid tags to input an if then statement here -->
                 </div>
             </div>
