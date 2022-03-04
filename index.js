@@ -10,11 +10,13 @@ require('dotenv').config() // allows us to access env vars
 const cookieParser = require('cookie-parser')
 const cryptojs = require('crypto-js')
 const db = require('./models')
+const methodOverride = require('method-override')
 
 // MIDDLEWARE
 app.set('view engine', 'ejs') // set view engine to ejs
 app.use(ejsLayouts) // tell express we want to use layouts
 app.use(cookieParser()) // gives us access to req.cookies
+app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended:false})) // body parser (to make req.body work)
 
 // CUSTOM LOGIN MIDDLEWARE

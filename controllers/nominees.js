@@ -5,6 +5,7 @@ const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js')
 const axios = require('axios')
 const req = require('express/lib/request')
+const methodOverride = require('method-override')
 require('dotenv').config() // this is so that our .process.env.SECRET works
 
 // router.get('/', (req, res) => {
@@ -74,22 +75,22 @@ router.get("/:teamname/:playername", (req, res) => {
 
 // need to be able to add notes
 // // add a notes section to the already displayed data
-// router.post('/', (req, res) => {
-//   db.note.findOrCreate({
-//     where: {
-//       comment: req.body.note
-//     }
-//   })
-//   .then(([note, noteCreated]) => {
-//     nominee.addNote(note)
-//     .then(() => {
-//       res.redirect('/')
-//     })
-//   })
-//   .catch((error) => {
-//     res.status(400).render('main/404')
-//   })
-// })
+router.post('/', (req, res) => {
+  db.note.findOrCreate({
+    where: {
+      comment: req.body.note
+    }
+  })
+  .then(([note, noteCreated]) => {
+    nominee.addNote(note)
+    .then(() => {
+      res.redirect('/')
+    })
+  })
+  .catch((error) => {
+    res.status(400).render('main/404')
+  })
+})
 
 // router.put('/', async (req, res) => {
 //   try {
@@ -109,15 +110,29 @@ router.get("/:teamname/:playername", (req, res) => {
 
 
 // DELETE a nominee
-router.delete('/:name', (req, res) => {
-  db.nominee.destroy({
-    where: { name: req.params.name }
-  }) .then( deletedNominee => {
-    console.log(deletedNominee)
-    res.redirect('/nominees')
-  }).catch(err => {
-    console.log(err)
-  })
+// router.delete('/:name', (req, res) => {
+//   db.nominee.destroy({
+//     where: { name: req.params.name }
+//   }) .then( deletedNominee => {
+//     console.log(deletedNominee)
+//     res.redirect('/user/nominees')
+//   }).catch(err => {
+//     console.log(err)
+//   })
+// })
+
+router.delete("/:teamname/:playername", async (req, res) => {
+  try {
+    const foundNominee = await db.nominee.findOne({
+      where: {
+        name: req.params.playername
+      }
+    })
+    await foundNominee.destroy()
+    res.redirect('/user/nominees')
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 

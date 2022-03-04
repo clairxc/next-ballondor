@@ -16,7 +16,7 @@
         <%= details['strTeam', 'strNumber'] %>
     </li>
     <li> Position:
-        <%= details['strSide','strPosition'] %>
+        <%= details['strPosition'] %>
     </li>
     <li> Height:
         <%= details['strHeight'] %>
@@ -42,13 +42,16 @@
     </li>
 </ul>
 
-<!-- text form -->
-<div class="form-group">
-    <label for="notes">Add Your Notes Here</label>
-    <textarea type="text" class="form-control" id="notes" name="notes" required></textarea>
-</div>
+<!-- create note section -->
+<form action="/user/nominees" method="POST"></form>
+    <div>
+        <label for="notes">Add Your Notes Here</label>
+        <textarea type="text" id="notes" name="notes"></textarea>
+    </div>
+    <button type="submit">Add Notes</button>
+</form>
 
 <!-- delete button -->
-<form action="/user/nominees/<%= eachNominee.name %>/?_method=DELETE" method="post">
-    <button type="submit">Delete</button>
+<form action="/user/nominees/<%= details['strTeam'] %>/<%= details['strPlayer'] %>/?_method=DELETE" method="POST">
+    <input type="submit" value="delete">
 </form>
