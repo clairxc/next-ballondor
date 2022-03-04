@@ -29,6 +29,7 @@
     "method-override": "^3.0.0",
     "pg": "^8.7.3",
     "request": "^2.88.2",
-    "sequelize": "^6.17.0"
+    "sequelize": "^6.17.0",
+    "sequelize-cli": "^6.4.1"
   }
 }

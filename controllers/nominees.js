@@ -12,7 +12,7 @@ require('dotenv').config() // this is so that our .process.env.SECRET works
 //   res.send('Hello nominees!')
 // })
 
-// GET /nominees - read/return a page with nominees 
+// GET /nominees - read/return a page with all nominees 
 router.get('/', async (req, res) => {
     // TODO: Get all records from the DB and render to view
     try {
@@ -50,7 +50,7 @@ router.post('/', async (req, res) => {
       // include: [db.user]
     })
     const localUser = res.locals.user
-    console.log(nominee,'asdfasdfasdfasdf')
+    console.log(nominee,'is this thing working')
     // await localUser.addNominee(nominee)
     res.redirect('/user/nominees') // this should redirect back to nominees route
   } catch (error) {
@@ -58,7 +58,8 @@ router.post('/', async (req, res) => {
   }
 })
 
-// GET nominee details (same as player details)
+
+// GET nominee details (should display same information as playerdetails.ejs)
 router.get("/:teamname/:playername", (req, res) => {
   // console.log(req.query.q)
   const url = `https://www.thesportsdb.com/api/v1/json/${process.env.SPORTS_API_KEY}/searchplayers.php?p=${req.params.playername}`;
@@ -72,6 +73,38 @@ router.get("/:teamname/:playername", (req, res) => {
   });
 })
 
+
+// DELETE a nominee
+// router.delete('/:name', (req, res) => {
+//   db.nominee.destroy({
+//     where: { name: req.params.name }
+//   }) .then( deletedNominee => {
+//     console.log(deletedNominee)
+//     res.redirect('/user/nominees')
+//   }).catch(err => {
+//     console.log(err)
+//   })
+// })
+
+// DELETE specific nominee
+// ther might be an issue with this due to how its set up-- bc its set up to delete based on the playername and not the id
+router.delete("/:teamname/:playername", async (req, res) => {
+  try {
+    const foundNominee = await db.nominee.findOne({
+      where: {
+        name: req.params.playername
+      }
+    })
+    await foundNominee.destroy()
+    res.redirect('/user/nominees')
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+
+
+// adding/deleting notes/comments
 
 // need to be able to add notes
 // // add a notes section to the already displayed data
@@ -108,33 +141,23 @@ router.post('/', (req, res) => {
 // })
 
 
-
-// DELETE a nominee
-// router.delete('/:name', (req, res) => {
-//   db.nominee.destroy({
-//     where: { name: req.params.name }
-//   }) .then( deletedNominee => {
-//     console.log(deletedNominee)
-//     res.redirect('/user/nominees')
-//   }).catch(err => {
-//     console.log(err)
-//   })
-// })
-
-router.delete("/:teamname/:playername", async (req, res) => {
-  try {
-    const foundNominee = await db.nominee.findOne({
+// POST route that will receive comments and add it to note db and redirect to /nominees
+router.post('/', async (req, res) => {
+  try{
+    const [note, noteCreated] = await db.note.findOrCreate({
       where: {
-        name: req.params.playername
-      }
+        comment: req.body.text
+      },
+      // include: [db.user]
     })
-    await foundNominee.destroy()
-    res.redirect('/user/nominees')
+    const localUser = res.locals.user
+    console.log(note,'is this thing working')
+    // await localUser.addnote(note)
+    res.redirect('/user/nominees') // this should redirect back to nominees route
   } catch (error) {
     console.log(error)
   }
 })
-
 
 
 module.exports = router;

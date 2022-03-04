@@ -1,6 +1,7 @@
 <h2>Display all details for specific player here</h2>
 
-<img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" >
+<img src="<%= details['strThumb'] %>" class="img-fluid" alt="<%= details['strThumb']%>">
+<!-- <img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" > -->
 
 <ul class="details">
     <li> Name:
@@ -48,10 +49,44 @@
         <label for="notes">Add Your Notes Here</label>
         <textarea type="text" id="notes" name="notes"></textarea>
     </div>
-    <button type="submit">Add Notes</button>
+    <button type="submit">Add Notes (not functional yet)</button>
 </form>
 
-<!-- delete button -->
+<!-- <div class="form-floating">
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+    <label for="floatingTextarea2">Comments</label>
+  </div> -->
+
+<!-- note section -->
+<!-- not functional -->
+<div id="respond">
+
+    <h3>Leave a Comment</h3>
+  
+    <form action="/user/nominees" method="POST" id="commentform">
+  
+      <label for="comment" class="required">Add Your Notes Here</label>
+      <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
+  
+      <!-- comment value hard-coded as 1 -->
+      <input type="hidden" name="comment" value="1" id="comment" />
+      <input name="submit" type="submit" value="Submit comment" />
+  
+    </form>
+  
+  </div>
+
+<!-- delete nominee button -->
+<!-- functional -->
 <form action="/user/nominees/<%= details['strTeam'] %>/<%= details['strPlayer'] %>/?_method=DELETE" method="POST">
-    <input type="submit" value="delete">
+    <input type="submit" value="Delete Nominee">
+</form>
+
+
+
+
+<!-- delete note button -->
+<!-- not functional -->
+<form action="/user/nominees/<%= details['strTeam'] %>/<%= details['strPlayer'] %>/?_method=DELETE" method="POST">
+    <input type="submit" value="Delete Note not functional">
 </form>
