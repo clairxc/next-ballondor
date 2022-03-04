@@ -44,7 +44,6 @@ router.post('/', async (req, res) => {
     const [nominee, nomineeCreated] = await db.nominee.findOrCreate({
       where: {
         name: req.body.name,
-        league: req.body.league,
         team: req.body.team
       },
       // include: [db.user]

@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
   }
   nominee.init({
     name: DataTypes.STRING,
-    league: DataTypes.STRING,
     team: DataTypes.STRING
   }, {
     sequelize,
