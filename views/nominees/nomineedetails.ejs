@@ -1,12 +1,8 @@
 <h2>Display all details for specific player here</h2>
 
-<img src="<%= details['strThumb'] %>" class="img-fluid" alt="<%= details['strThumb']%>">
+<!-- try to add carousel here -->
 
-<!-- delete nominee button -->
-<!-- functional -->
-<form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
-    <input type="submit" value="Delete Nominee">
-</form>
+<img src="<%= details['strThumb'] %>" class="img-fluid" alt="<%= details['strThumb']%>">
 
 <ul class="details">
     <li> Name:
@@ -48,54 +44,57 @@
     </li>
 </ul>
 
-<!-- create note section -->
-<!-- not functional -->
-<!-- <div id="respond">
-  
-    <form action="/user/nominees" method="POST">
-  
-      <label for="comment" class="required">Add Your Personal Notes Here</label>
 
-      <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required" type="text">laskjdflkjsldfkjlaskjdf</textarea>
 
-      <input name="submit" type="submit" value="Add Notes" /> -->
+<!-- notes will be posted here -->
+<h2>COMMENTSSSSSSSS</h2>
+<div class="comment">
+<% comment.forEach(element => { %>
+<li><%= element.comment %></li>
+<% }) %>
+</div>
 
-    <form action="/user/nominees/comment" method="POST">
+<!-- text area to add notes -->
+<form action="/user/nominees/comment" method="POST">
+<div class="form-group">
+    <label for="comment">Add Your Personal Notes Here</label>
+    <input type="text" class="form-control" id="comment" name="comment" required>
+
     <div class="form-group">
-        <label for="comment">comment</label>
-        <input type="text" class="form-control" id="comment" name="comment" required>
-    
-        <div class="form-group">
-        <input type="hidden" class="form-control" id="userId" name="userId" value="<%= user.id %>">
-        </div>
-    
-        <div class="form-group">
-        <input type="hidden" class="form-control" id="nomineeId" name="nomineeId" value="<%= nominee.id %>">
-        </div>
-    
-        <div class="form-group">
-        <input type="hidden" class="form-control" id="email" name="email" value="<%= user.email %>">
-        </div>
+    <input type="hidden" class="form-control" id="userId" name="userId" value="<%= user.id %>">
     </div>
-    <input type="submit" class="btn btn-primary">
-    </form>
 
+    <div class="form-group">
+    <input type="hidden" class="form-control" id="nomineeId" name="nomineeId" value="<%= nominee.id %>">
+    </div>
 
+    <div class="form-group">
+    <input type="hidden" class="form-control" id="email" name="email" value="<%= user.email %>">
+    </div>
+</div>
+<input type="submit" class="btn btn-primary">
+</form>
 
-
-
-
-
-
-
+<!-- delete nominee button -->
+<!-- functional -->
+<form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
+    <input type="submit" value="Delete Nominee">
+</form>
 
       
-      <!-- delete note button -->
-      <!-- not functional -->
-      <form action="/user/nominees/<%= details['strTeam'] %>/<%= details['strPlayer'] %>/?_method=DELETE" method="POST">
-          <input type="submit" value="Delete Note not functional">
-      </form>
+<!-- delete note button -->
+<!-- not functional -->
+<form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
+<input type="submit" value="Delete Notes">
+</form>
+
+
+
+
+<div>
+    <form action="/user/nominees/<%= details['strTeam'] %>/<%= details['strPlayer'] %>/?_method=DELETE" method="POST">
+        <input type="submit" value="Delete Note not functional">
     </form>
-  </div>
+</div>
 
 

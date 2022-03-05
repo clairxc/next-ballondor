@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
         nominees: allNominees
       })
     } catch (error) {
-      console.log(error)
+      res.status(400).render('main/404.ejs')
     }
   }
     // res.send('Render a page of nominees here');
@@ -59,7 +59,7 @@ router.post('/', async (req, res) => {
       // await localUser.addNominee(nominee)
       res.redirect('/user/nominees') // this should redirect back to nominees route
     } catch (error) {
-      console.log(error)
+      res.status(400).render('main/404.ejs')
     }
   } else {
     res.redirect('/users/login')
@@ -118,7 +118,7 @@ router.delete("/:nomineeId", async (req, res) => {
     await foundNominee.destroy()
     res.redirect('/user/nominees')
   } catch (error) {
-    console.log(error)
+    res.status(400).render('main/404.ejs')
   }
 })
 
@@ -126,7 +126,8 @@ router.delete("/:nomineeId", async (req, res) => {
 
 // adding/deleting notes/comments
 
-
+// need to be able to add notes
+// // add a notes section to the already displayed nomineesdetail.ejs page
 router.post('/comment', (req, res) => {
   db.note.create({
     userId: res.locals.user.id,
@@ -135,12 +136,22 @@ router.post('/comment', (req, res) => {
     comment: req.body.comment
   })
   .then((post) => {
-    res.redirect('/')
+    res.redirect('/user/nominees/')
   })
   .catch((error) => {
     res.status(400).render('main/404.ejs')
   })
 })
+
+module.exports = router;
+
+
+
+
+
+
+
+
 
 // need to be able to add notes
 // // add a notes section to the already displayed nomineesdetail.ejs page
@@ -197,5 +208,3 @@ router.post('/comment', (req, res) => {
 //   }
 // })
 
-
-module.exports = router;
