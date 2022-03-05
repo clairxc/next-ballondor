@@ -3,6 +3,44 @@ body {
     color: white;
 }
 
+h1 {
+    text-align: center;
+    padding-top: 1.5rem;
+}
+
+.team-logos {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accordion-button {
+    background-color:#191c1f;
+    color: white;
+    /* border:#191c1f; */
+}
+
+#accordian {
+    color: black;
+}
+
+#team-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+#team-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2rem;
+    color: goldenrod;
+}
+
+
 
 
 

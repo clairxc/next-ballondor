@@ -77,6 +77,7 @@ router.get("/", (req, res) => {
   });
 });
 
+
 // export all these routes to the entry point file
 module.exports = router;
 

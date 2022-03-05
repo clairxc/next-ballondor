@@ -70,7 +70,9 @@ router.get("/:name", (req, res) => {
     // // console.log(teams)
     teams.forEach((team) => {
       leagueTeams.push({
-        name: team.strTeam
+        name: team.strTeam,
+        badge: team.strTeamBadge,
+        description: team.strDescriptionEN
       });
     })
     // console.log(leagueTeams)

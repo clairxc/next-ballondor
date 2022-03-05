@@ -7,15 +7,33 @@
     </form>
 </div> -->
 
-<h2>Display all teams in specific league</h2>
+<h1>All Teams in League</h1>
 
 <!-- league widget -->
-<div id="scoreaxis-widget-8ab71" style="border-width:1px;border-color:rgba(0, 0, 0, 0.15);border-style:solid;border-radius:8px;padding:10px;background:rgb(255, 255, 255);width:100%" data-reactroot=""><iframe id="Iframe" src="https://www.scoreaxis.com/widget/standings-widget/8?&amp;inst=8ab71" style="width:100%;border:none;transition:all 300ms ease"></iframe><script>window.addEventListener("DOMContentLoaded",event=>{window.addEventListener("message",event=>{if(event.data.appHeight&&"8ab71"==event.data.inst){let container=document.querySelector("#scoreaxis-widget-8ab71 iframe");container&&(container.style.height=parseInt(event.data.appHeight)+"px")}},!1)});</script></div>
+<!-- <div id="scoreaxis-widget-8ab71" style="border-width:1px;border-color:rgba(0, 0, 0, 0.15);border-style:solid;border-radius:8px;padding:10px;background:rgb(255, 255, 255);width:100%" data-reactroot=""><iframe id="Iframe" src="https://www.scoreaxis.com/widget/standings-widget/8?&amp;inst=8ab71" style="width:100%;border:none;transition:all 300ms ease"></iframe><script>window.addEventListener("DOMContentLoaded",event=>{window.addEventListener("message",event=>{if(event.data.appHeight&&"8ab71"==event.data.inst){let container=document.querySelector("#scoreaxis-widget-8ab71 iframe");container&&(container.style.height=parseInt(event.data.appHeight)+"px")}},!1)});</script></div> -->
 
 <% leagueTeams.forEach(team => { %>
-    <div>
-      <h3><%= team.name %></h3>
-      <a href="/players/<%= team.name %>">View All Players in Team</a>
-    </div>
+    <div class="accordion" id="accordian">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <%= team.name %>
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse collapse">
+            <div class="accordion-body">
+              <%= team.description %>
+            </div>
+          </div>
+        </div>
+
+
+
+
+    <h3 id="team-name"><%= team.name %></h3>
+        <div class="team-logos">
+        <img src="<%= team.badge %>" alt="<%= team.name %>" width="100" height="100"/>
+        </div>
+        <a id="team-link" href="/players/<%= team.name %>">View All Players in Team</a>
 <% }) %>
 

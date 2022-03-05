@@ -25,6 +25,7 @@ router.get("/:name", (req, res) => {
       teamPlayers.push({
         name: player.strPlayer,
         team: player.strTeam
+
       });
     })
     // console.log(teamPlayers)
