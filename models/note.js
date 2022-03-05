@@ -17,8 +17,9 @@ module.exports = (sequelize, DataTypes) => {
   }
   note.init({
     userId: DataTypes.INTEGER,
-    playerId: DataTypes.INTEGER,
-    comment: DataTypes.TEXT
+    nomineeId: DataTypes.INTEGER,
+    comment: DataTypes.TEXT,
+    email: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'note',

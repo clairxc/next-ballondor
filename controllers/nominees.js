@@ -69,7 +69,12 @@ router.post('/', async (req, res) => {
 
 // GET nominee details (should display same information as playerdetails.ejs)
 router.get("/:nomineeId", async (req, res) => {
-  // console.log(req.query.q)
+  const user = res.locals.user
+  const comment = await db.note.findAll({
+    where: {
+      nomineeId: req.params.nomineeId
+    }
+  })
   const nominee = await db.nominee.findByPk(req.params.nomineeId)
   // console.log(nominee)
 
@@ -80,7 +85,9 @@ router.get("/:nomineeId", async (req, res) => {
     const details = response.data.player[0]
     res.render("nominees/nomineedetails.ejs", {
       details: details,
-      nominee: nominee
+      nominee: nominee,
+      user: user,
+      comment: comment
     });
   });
 })
@@ -119,24 +126,42 @@ router.delete("/:nomineeId", async (req, res) => {
 
 // adding/deleting notes/comments
 
-// need to be able to add notes
-// // add a notes section to the already displayed data
-router.post('/', (req, res) => {
-  db.note.findOrCreate({
-    where: {
-      comment: req.body.note
-    }
+
+router.post('/comment', (req, res) => {
+  db.note.create({
+    userId: res.locals.user.id,
+    nomineeId: req.body.nomineeId,
+    email: req.body.email,
+    comment: req.body.comment
   })
-  .then(([note, noteCreated]) => {
-    nominee.addNote(note)
-    .then(() => {
-      res.redirect('/')
-    })
+  .then((post) => {
+    res.redirect('/')
   })
   .catch((error) => {
-    res.status(400).render('main/404')
+    res.status(400).render('main/404.ejs')
   })
 })
+
+// need to be able to add notes
+// // add a notes section to the already displayed nomineesdetail.ejs page
+// router.post('/:nomineeId', async (req, res) => {
+//   if (res.locals.user) {
+//     try {
+//       const [note, noteCreated] = await db.note.findOrCreate({
+//         where: {
+//           comment: req.body.comment
+//         },
+//       })
+//       const localUser = res.locals.user
+//       nominee.addNote(localUser)
+//       res.redirect('/user/nominees')
+//       } catch(error) {
+//         console.log(error)
+//       }
+//     } else {
+//       res.redirect('/users/login')
+//     }
+// })
 
 // router.put('/', async (req, res) => {
 //   try {
@@ -155,22 +180,22 @@ router.post('/', (req, res) => {
 
 
 // POST route that will receive comments and add it to note db and redirect to /nominees
-router.post('/', async (req, res) => {
-  try{
-    const [note, noteCreated] = await db.note.findOrCreate({
-      where: {
-        comment: req.body.text
-      },
-      // include: [db.user]
-    })
-    const localUser = res.locals.user
-    console.log(note,'is this thing working')
-    // await localUser.addnote(note)
-    res.redirect('/user/nominees') // this should redirect back to nominees route
-  } catch (error) {
-    console.log(error)
-  }
-})
+// router.post('/', async (req, res) => {
+//   try{
+//     const [note, noteCreated] = await db.note.findOrCreate({
+//       where: {
+//         comment: req.body.text
+//       },
+//       // include: [db.user]
+//     })
+//     const localUser = res.locals.user
+//     console.log(note,'is this thing working')
+//     // await localUser.addnote(note)
+//     res.redirect('/user/nominees') // this should redirect back to nominees route
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
 
 
 module.exports = router;
