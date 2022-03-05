@@ -14,6 +14,7 @@ const methodOverride = require('method-override')
 
 // MIDDLEWARE
 app.set('view engine', 'ejs') // set view engine to ejs
+app.use('/',express.static('public'))
 app.use(ejsLayouts) // tell express we want to use layouts
 app.use(cookieParser()) // gives us access to req.cookies
 app.use(methodOverride('_method'))

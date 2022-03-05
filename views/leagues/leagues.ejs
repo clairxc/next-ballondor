@@ -11,13 +11,13 @@
 <h1>League Results:</h1>
 <!-- when user clicks on a league, user should be taken to a page that displays all the teams in that specific league -->
 <% soccerLeagues.forEach(league => { %>
-    <div>
-      <h3><%= league.strLeague %></h3>
-      <a href="/teams/<%= league.strLeague %>">View All Teams</a>
+    <div class="list-group">
+        <a href="/teams/<%= league.strLeague %>" class="list-group-item list-group-item-action active" aria-current="true">
+            <%= league.strLeague %>
+        </a>
     </div>
 <% }) %>
-
-
+    
 
 <!--     
 <form method="POST" action="/leagues">
