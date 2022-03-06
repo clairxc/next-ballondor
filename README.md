@@ -22,7 +22,7 @@ Next Best is a full CRUD application that provides the user the ability to view 
 
 
 ## RESTful Routing Chart
-![image](https://user-images.githubusercontent.com/96402339/155938542-ecbb3208-cad6-4208-bda6-481abd873561.png)
+![image](https://user-images.githubusercontent.com/96402339/156918146-344ff9ad-2c24-48ee-8828-51c7c6155afe.png)
 
 
 ## Wireframes of User Views
