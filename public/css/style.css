@@ -21,8 +21,19 @@ h1 {
     /* border:#191c1f; */
 }
 
+.accordian-item {
+    background-color: #191c1f;
+}
+
 #accordian {
     color: black;
+}
+
+
+#collapseOne {
+    color: white;
+    background-color: #191c1f;
+    border: none;
 }
 
 #team-name {
