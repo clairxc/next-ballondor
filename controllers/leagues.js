@@ -73,6 +73,7 @@ router.get("/", (req, res) => {
     });
     res.render("leagues/leagues.ejs", {
       soccerLeagues,
+      results: leagues
     });
   });
 });

@@ -1,8 +1,17 @@
-<h1>Team Players</h1>
+<h1>All Players in Team</h1>
+
+<aside>
+
+</aside>
 
 <% teamPlayers.forEach(player => { %>
-    <div>
-      <h3><%= player.name %></h3>
-      <a href="/players/<%= player.team %>/<%= player.name %>">Player Details</a>
+  <div class="player-card-deck">
+    <div class="player-card">
+      <img class="card-img-top" src="<%= player.image %>" alt="<%= player.name %>">
+      <div class="player-card-body">
+        <h5 class="player-card-title"><%= player.name %></h5>
+        <a href="/players/<%= player.team %>/<%= player.name %>" class="btn btn-primary">Player Details</a>
+      </div>
     </div>
-<% }) %>
+  </div>
+  <% }) %>

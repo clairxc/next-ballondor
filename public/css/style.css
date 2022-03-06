@@ -6,6 +6,33 @@ body {
 h1 {
     text-align: center;
     padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+
+/* .img-size {
+    width: auto;
+    height: auto;
+    padding: 0 15rem 0 20rem;
+} */
+
+.home-h3 {
+    padding: 2rem 15rem 0 15rem;
+}
+
+.home {
+    padding: 0 15rem 0 20rem;
+}
+
+.home-p {
+    padding: 0 15rem 0 15rem;
+}
+.league-h2 {
+    text-align: center;
+}
+
+.league-card {
+    color: white;
+    border: white;
 }
 
 .team-logos {
@@ -15,43 +42,69 @@ h1 {
     justify-content: center;
 }
 
-.accordion-button {
-    background-color:#191c1f;
-    color: white;
-    /* border:#191c1f; */
-}
-
-.accordian-item {
+.card {
+    padding: 1rem;
     background-color: #191c1f;
-}
-
-#accordian {
-    color: black;
-}
-
-
-#collapseOne {
     color: white;
-    background-color: #191c1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: none;
 }
 
-#team-name {
+.card-title {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
 }
 
-#team-link {
+.btn-primary {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 2rem;
-    color: goldenrod;
+    background-color: #191c1f;
+    border-color: goldenrod;
+    text-transform: uppercase;
 }
 
+.btn-primary:hover {
+    background-color: goldenrod;
+    color: #191c1f;
+    border: none;
+}
 
+.btn-primary:active {
+    background-color: #191c1f;
+    /* box-shadow: 0 5px goldenrod; */
+    transform: translateY(4px);
+    border: none;
+}
+
+.collapseText {
+    background-color: #191c1f;
+}
+
+.player-card-deck {
+    border: solid white;
+    /* padding: 2rem; */
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex-direction: row;
+    width: 20%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.player-card-title {
+    text-transform: uppercase;
+    padding-top: 1rem;
+}
+
+.player-card-body {
+    text-align: center;
+}
 
 
 
