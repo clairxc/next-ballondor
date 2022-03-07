@@ -1,8 +1,9 @@
 <h2>Display all details for specific player here</h2>
 
 <!-- try to add carousel here -->
-
-<img src="<%= details['strThumb'] %>" class="img-fluid" alt="<%= details['strThumb']%>">
+<div class="player-detail-image">
+    <img src="<%= details['strThumb'] %>" class="center" alt="<%= details['strThumb'] %>">
+</div>
 
 <ul class="details">
     <li> Name:
@@ -50,7 +51,7 @@
 
 
 <!-- comments will be posted here -->
-<h2>COMMENTSSSSSSSS</h2>
+<h2>Notes</h2>
 <div class="comment">
     <% comment.forEach(element => { %>
     <li><%= element.comment %></li>
@@ -69,7 +70,8 @@
 <!-- functional -->
 <form action="/user/nominees/comment" method="POST">
 <div class="form-group">
-    <label for="comment">Add Your Personal Notes Here</label>
+    <label for="comment">Add Your Own Notes Here</label>
+    <p id="comments">* Don't worry, only you can see these notes *</p>
     <input type="text" class="form-control" id="comment" name="comment" required>
 
     <div class="form-group">
@@ -92,7 +94,3 @@
 <form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
     <input type="submit" value="Delete Nominee">
 </form>
-
-
-
-

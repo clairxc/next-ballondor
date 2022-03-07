@@ -3,10 +3,14 @@ body {
     color: white;
 }
 
-h1 {
+h1, h2 {
     text-align: center;
     padding-top: 1.5rem;
     padding-bottom: 1rem;
+}
+
+ul {
+    padding-bottom: 1.5rem;
 }
 
 /* .img-size {
@@ -106,6 +110,19 @@ h1 {
     text-align: center;
 }
 
+.player-detail-image {
+    border: solid white;
+}
+
+
+
+
+
+
+
+
+
+
 #404 {
     display: flex;
 }
@@ -115,6 +132,9 @@ h1 {
     border-radius: 10px;
 }
 
+#comments {
+    font-size: 10px;
+}
 
 /* .page_404 {
     padding: 40px 0;

@@ -121,7 +121,7 @@ router.post('/comment', (req, res) => {
     comment: req.body.comment
   })
   .then((post) => {
-    res.redirect('/user/nominees/')
+    res.redirect(`/user/nominees/${req.body.nomineeId}`)
   })
   .catch((error) => {
     res.status(400).render('main/404.ejs')
