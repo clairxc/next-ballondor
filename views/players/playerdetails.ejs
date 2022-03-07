@@ -1,12 +1,10 @@
-<h2>Display all details for specific player here</h2>
+<h2>Player Details</h2>
 
-
-<div> 
+<div class="player-image"> 
     <img src="<%= details['strThumb'] %>" alt="<%= details['strThumb']%>" >
 </div>
 
-<!-- add to nominee button -->
-<div>
+<div class="nominee-button">
     <form method="POST" action="/user/nominees">
         <input hidden type="text" name="name" value="<%= details['strPlayer'] %>">
         <input hidden type="text" name="team" value="<%= details['strTeam'] %>">
@@ -32,11 +30,15 @@
     </li>
 
     <li> Team:
-        <%= details['strTeam', 'strNumber'] %>
+        <%= details['strTeam'] %>
+    </li>
+
+    <li> Player Number:
+        <%= details['strNumber'] %>
     </li>
 
     <li> Position:
-        <%= details['strSide'] +' '+ details['strPosition'] %>
+        <%= details['strPosition'] %>
     </li>
 
     <li> Height:
@@ -52,19 +54,17 @@
     </li>
 
     <li> Wage:
-        <div>
             <%= details['strWage'] %>
-        </div>
     </li>
 
     <li> Background Info:
-        <div>
+        <div class="background-info">
             <%= details['strDescriptionEN'] %>
         </div>
     </li>
 
-    <li> 
-    <a href="https://<%= details['strInstagram'] %>">Social Media:</a>
+    <li> Social Media:
+    <a href="https://<%= details['strInstagram'] %>">Instagram</a>
     </li>
 
 </ul>

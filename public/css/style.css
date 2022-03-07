@@ -5,7 +5,7 @@ body {
 
 h1, h2 {
     text-align: center;
-    padding-top: 1rem;
+    padding-top: 2rem;
     padding-bottom: 1rem;
 }
 
@@ -15,6 +15,40 @@ ul {
 
 li {
     padding-bottom: .75rem;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: goldenrod;
+}
+
+.navbar {
+    font-size: 20px;
+}
+
+.navbar-brand {
+    font-size: 30px;
+}
+
+.row {
+    margin-top: 8rem;
+}
+
+.login-button {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-div {
+    margin-bottom: 3rem;
+}
+
+.home-bottom-div {
+    margin-bottom: 8rem;
 }
 
 .home-h3 {
@@ -36,8 +70,7 @@ li {
     padding-top: 1.1rem;
     padding: 1rem;
     display: inline-block;
-    text-align: justify;
-    margin: 3rem 2rem 1rem 2rem;
+    margin: 5rem 2rem 1rem 2.2rem;
 }
 
 .top-league-logos {
@@ -121,11 +154,38 @@ li {
     border: solid white;
 }
 
+.player-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.nominee-button {
+    padding: 2.5rem 0rem 2.5rem 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details {
+    margin-left: 8rem;
+    margin-right: 9rem;
+    word-spacing: 5px;
+    font-size: 20px;
+}
+
+.background-info {
+    word-spacing: normal;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
 .form-group {
     padding: 0 0 1rem 2rem;
 }
 
-.form-control {
+.form-control-comment {
     width: 80%;
     height: 100px;
     padding: 10px;
@@ -137,10 +197,12 @@ li {
 .comment-area {
     padding: 0 0 .3rem;
     margin-left: 2rem;
+    font-size: 20px;
 }
 
 #comment-submit-button {
     margin-left: 2rem;
+    margin-bottom: 10rem;
 }
 
 .nominee-note-title {
@@ -152,24 +214,26 @@ li {
 }
 
 #comment-delete-button {
-    font-size: 10px;
+    font-size: 15px;
     margin-bottom: 2rem;
     margin-left: 2rem;
 }
 
+
 #comments {
-    font-size: 10px;
+    font-size: 15px;
 }
 
 #delete-nominee-button {
-    margin: 1rem;
+    margin-top: 2rem;
     display:flex;
     align-items: center;
     justify-content:center;
 }
 
-
-
+#notes-here {
+    font-size: 30px;
+}
 
 #404 {
     display: flex;
@@ -178,8 +242,8 @@ li {
 /* slideshow */
 #slideshow {
     margin: 0 auto;
-    padding-top: 20px;
-    height: 22rem;;
+    padding-top: 70px;
+    height: 24rem;
     width: 100%;
     box-sizing: border-box;
 }
@@ -257,3 +321,13 @@ transform: rotateY(0deg);
 transform: rotateY(360deg);
 }
 }
+
+/* .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: darkgrey;
+    color: white;
+    text-align: center;
+ } */

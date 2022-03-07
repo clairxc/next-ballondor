@@ -1,10 +1,7 @@
-
-<!-- try to add carousel here -->
-<div class="player-detail-image">
+<div class="player-image">
     <img src="<%= details['strThumb'] %>" class="center" alt="<%= details['strThumb'] %>">
 </div>
 
-<!-- delete nominee button -->
 <form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
     <div id="delete-nominee-button">
         <input type="submit" value="Delete Nominee" class="btn btn-primary">
@@ -17,48 +14,60 @@
     <li> Name:
         <%= details['strPlayer'] %>
     </li>
+
     <li> Nationality: 
         <%= details['strNationality'] %>
     </li>
+
     <li> Date of Birth:
         <%= details['dateBorn'] %>
     </li>
+
+    <li> League: 
+        <%= details['strLeague'] %>
+    </li>
+
     <li> Team:
         <%= details['strTeam'] %>
-    </li>  
+    </li>
+
     <li> Player Number:
         <%= details['strNumber'] %>
     </li>
+
     <li> Position:
         <%= details['strPosition'] %>
     </li>
+
     <li> Height:
         <%= details['strHeight'] %>
     </li>
+
     <li> Weight:
         <%= details['strWeight'] %>
     </li>
+
     <li> Date Signed:
         <%= details['dateSigned'] %>
     </li>
+
     <li> Wage:
-        <div>
             <%= details['strWage'] %>
-        </div>
     </li>
+
     <li> Background Info:
-        <div>
+        <div class="background-info">
             <%= details['strDescriptionEN'] %>
         </div>
     </li>
-    <li> Link to:
-        <a href="https://<%= details['strInstagram'] %>">Instagram</a>
+
+    <li> Social Media:
+    <a href="https://<%= details['strInstagram'] %>">Instagram</a>
     </li>
+
 </ul>
 
 
-
-<!-- comments will be posted here -->
 <h2 class="nominee-note-title">Notes</h2>
 <div>
     <% comment.forEach(element => { %>
@@ -66,7 +75,7 @@
         <li><%= element.comment %></li>
     </div>    
 </div>
-<!-- delete note button -->
+
 <form action="/user/nominees/<%= nominee.id %>/comment/?_method=DELETE" method="POST">
     <div id="comment-delete-button">
         <input type="submit" id="comment-delete-button" class="btn btn-primary" value="Delete Note">
@@ -76,14 +85,11 @@
 </form>
 <% }) %>
 
-
-<!-- text area to add notes -->
-<!-- functional -->
 <form action="/user/nominees/comment" method="POST">
-    <div class="form-group">
-        <label for="comment">Add Your Own Notes Here</label>
+    <div class="form-group notes-here">
+        <label id="notes-here" for="comment">Add Your Own Notes Here</label>
         <p id="comments">* Don't worry, only you can see these notes *</p>
-        <input type="text" class="form-control" id="comment" name="comment" required>
+        <input type="text" class="form-control-comment" id="comment" name="comment" required>
 
         <input type="hidden" id="userId" name="userId" value="<%= user.id %>">
         <input type="hidden"id="nomineeId" name="nomineeId" value="<%= nominee.id %>">
