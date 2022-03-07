@@ -1,4 +1,4 @@
-# Next Best: Who will win the next Ballon d'Or?
+# Next Best: WHO WILL WIN THE NEXT BALLON d'OR?
 
 <h1 align="center">
   <img src="https://library.sportingnews.com/styles/crop_style_16_9_tablet_2x/s3/2021-08/ballon-dor_jdrcxk2gyy5v1qbj8784anq4a.jpg?itok=ZlNPtzCQ">
