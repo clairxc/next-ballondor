@@ -17,16 +17,6 @@ li {
     padding-bottom: .75rem;
 }
 
-/* div {
-    padding: 0 10rem 0 10rem;
-} */
-
-/* .img-size {
-    width: auto;
-    height: auto;
-    padding: 0 15rem 0 20rem;
-} */
-
 .home-h3 {
     padding: 2rem 15rem 0 15rem;
 }
@@ -43,8 +33,11 @@ li {
 }
 
 .league-list {
-    padding-top: 2rem;
-    font-size: 50px;
+    padding-top: 1.1rem;
+    padding: 1rem;
+    display: inline-block;
+    text-align: justify;
+    margin: 3rem 2rem 1rem 2rem;
 }
 
 .top-league-logos {
@@ -99,7 +92,6 @@ li {
 
 .btn-primary:active {
     background-color: #262626;
-    /* box-shadow: 0 5px goldenrod; */
     transform: translateY(4px);
     border: none;
 }
@@ -109,16 +101,11 @@ li {
 }
 
 .player-card-deck {
-    border: solid white;
-    /* padding: 2rem; */
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    flex-direction: row;
+    padding: 2rem;
+    margin: 1rem 2rem 2rem 2rem;
+    display: inline-block;
     width: 20%;
     position: relative;
-    padding-right: 15px;
-    padding-left: 15px;
 }
 
 .player-card-title {
@@ -188,6 +175,7 @@ li {
     display: flex;
 }
 
+/* slideshow */
 #slideshow {
     margin: 0 auto;
     padding-top: 20px;
@@ -197,32 +185,32 @@ li {
 }
 
 .entire-content {
-margin: auto;
-width: 180px;
-perspective: 1000px;
-position: relative;
-padding-top: 50px;
+    margin: auto;
+    width: 180px;
+    perspective: 1000px;
+    position: relative;
+    padding-top: 2rem;
 }
 
 .content-carrousel {
-width: 100%;
-position: absolute;
-float: right;
-animation: rotar 15s infinite linear;
-transform-style: preserve-3d;
+    width: 100%;
+    position: absolute;
+    float: right;
+    animation: rotar 15s infinite linear;
+    transform-style: preserve-3d;
 }
 
 .content-carrousel:hover {
-animation-play-state: paused;
-cursor: pointer;
+    animation-play-state: paused;
+    cursor: pointer;
 }
 
 .content-carrousel figure {
-width: 100%;
-height:10rem;;
-border: 1px solid #3b444b;
-overflow: hidden;
-position: absolute;
+    width: 100%;
+    height:10rem;;
+    border: 1px solid #3b444b;
+    overflow: hidden;
+    position: absolute;
 }
 
 .content-carrousel figure:nth-child(1) {
@@ -251,15 +239,15 @@ position: absolute;
 }
 
 .content-carrousel img {
-image-rendering: auto;
-transition: all 300ms;
-width: 100%;
-height: 100%;
+    image-rendering: auto;
+    transition: all 300ms;
+    width: 100%;
+    height: 100%;
 }
 
 .content-carrousel img:hover {
-transform: scale(1.2);
-transition: all 300ms;
+    transform: scale(1.2);
+    transition: all 300ms;
 }
 
 @keyframes rotar {
@@ -269,35 +257,3 @@ transform: rotateY(0deg);
 transform: rotateY(360deg);
 }
 }
-
-
-/* .page_404 {
-    padding: 40px 0;
-    background: #fff;
-}
-
-.four_zero_four_bg {
-    background-image: url(img.gif);
-    height: 400px;
-    background-position: center;
-}
-
-.four_zero_four_bg h1 {
-    font-size: 80px;
-}
-
-.four_zero_four_bg h3 {
-    font-size: 80px;
-}
-
-.link_404 {
-    color: #fff;
-    padding: 10px 20px;
-    background: #39ac31;
-    margin: 20px 0;
-    display: inline-block;
-}
-
-.content_box_404 {
-    margin-top: -50px;
-} */

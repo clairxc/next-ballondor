@@ -1,18 +1,5 @@
 <h1>Top 5 Ranking Leagues</h1>
 
-<!-- <div>
-    <form method="GET" action="/leagues">
-        <label for="search">Search:</label>
-        <input type="text" id="search" placeholder="search here" name="leagueSearch"/>
-        <input type="submit"/>
-    </form>
-</div> -->
-
-
-
-<!-- <h2 class="league-h2">League Results:</h2> -->
-<!-- when user clicks on a league, user should be taken to a page that displays all the teams in that specific league -->
-
 <section id="slideshow">
     <div class="entire-content">
         <div class="content-carrousel">
@@ -24,15 +11,6 @@
         </div>
     </div>
 </section>
-<!-- <div class="container">
-    <div class="carousel">
-        <img src="https://chickennpickle.com/wichita/wp-content/uploads/sites/4/2020/06/Premier-League-logo-2.png"  alt="premier-league" width="200" height="200">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRys3pfI6vtyoR5abtVaeRkdyWQU2TGZ750521GvTRSMF0bvgqobkZDejUHtQimuh_cts0&usqp=CAU" width="200" height="200" alt="bundesliga">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Serie_a_2021.svg/300px-Serie_a_2021.svg.png" width="200" height="200" alt="serie-a">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ligue_1_Uber_Eats_logo.svg/260px-Ligue_1_Uber_Eats_logo.svg.png" width="230" height="200" alt="ligue-1">
-        <img src="https://1000logos.net/wp-content/uploads/2019/01/Spanish-La-Liga-logo.jpg" width="300" height="200" alt="la-liga">
-    </div>
-</div> -->
 
 <% soccerLeagues.forEach(league => { %>
     <div class="league-list">
@@ -41,25 +19,3 @@
         </a>
     </div>
 <% }) %>
-
-
-    
-
-<!--     
-<form method="POST" action="/leagues">
-    <div class="search-div">
-        <label for="league name input" id="league name input">Click a league below</label>
-
-        <br> <br>
-
-        <select name="leagueName" id="leagueName">
-            <option value="English%20Premier%20League">Premier League</option>
-            <option value="German%20Bundesliga">Bundesliga</option>
-            <option value="Italian%20Serie%20A">Serie A</option>
-            <option value="Ligue%201">Ligue 1</option>
-            <option value="La%20Liga">La Liga</option>
-        </select>
-        <input id="search-btn" type="submit" value="See Results!">
-    </div>
-</form>     -->
-

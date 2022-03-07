@@ -4,10 +4,9 @@ const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js')
 const axios = require('axios')
-require('dotenv').config() // this is so that our .process.env.SECRET works
+require('dotenv').config()
 
 // EXTRA: GET all players in top 5 leagues to show when user clicks PLAYERS in nav bar
-
 
 
 // GET all players in specific league and display on player.ejs
@@ -50,23 +49,5 @@ router.get("/:teamname/:playername", (req, res) => {
   });
 })
 
-// display missing information as N/A
-// if (details === true) {
-//   details.forEach()
-// } else {
-//   details.details = 'N/A'
-
-// // or
-// if (details != null) {
-//   res.render()
-// } else {
-//   res.render("players/playerdetails.ejs", {
-//     details: details
-//   })
-// }
-
-
-
-// export all these routes to the entry point file
 module.exports = router
 

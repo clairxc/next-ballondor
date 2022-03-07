@@ -3,14 +3,7 @@ const router = express.Router()
 const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js')
-require('dotenv').config() // this is so that our .process.env.SECRET works
-
-
-// // GET profile page
-// router.get('/profile', (req, res) => {
-//     res.render('user/profile.ejs')
-// })
-
+require('dotenv').config()
 
 router.get('/', (req, res) => {
     res.render('user/new.ejs')
@@ -23,7 +16,6 @@ router.get('/signup', (req, res) => {
 
 // sign up route
 router.post('/', async (req, res) => {
-    // we make a [] instead of just doing db.user.findOrCreate bc we need somewhere for the data to be returned so that we can see it. if we didnt need to SEE the data, we would just be able to do db.user.findOrCreate
     const [newUser, created] = await db.user.findOrCreate({
         where: {email: req.body.email}
     }) 
@@ -32,12 +24,11 @@ router.post('/', async (req, res) => {
         // render the login page and send an appropriate message
     } else {
         // hash the password
-        const hashedPassword = bcrypt.hashSync(req.body.password, 10) //10 denotes the salt rounds
-        newUser.password = hashedPassword //change from req.body.password to hashedPassword
-        await newUser.save() // if its a databse transaction, good to put await
-
+        const hashedPassword = bcrypt.hashSync(req.body.password, 10) 
+        newUser.password = hashedPassword 
+        await newUser.save()
         // encrypt the user id via AES
-        const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET) // process.env.SECRET is our 2nd arg
+        const encryptedUserId = cryptojs.AES.encrypt(newUser.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         console.log(encryptedUserIdString)
         // store the encrypted id in the cookie of the res obj
@@ -59,16 +50,14 @@ router.post('/login', async (req, res) => {
     })
     if(!user) {
         console.log('user not found!')
-        res.render('user/login.ejs', {error: 'Invalid email/password'}) //passing through an error message
+        res.render('user/login.ejs', {error: 'Invalid email/password'})
     } else if(!bcrypt.compareSync(req.body.password, user.password)) {
         console.log('Incorrect Password')
         res.render('user/login.ejs', {error: 'Invalid email/password'})
     } else {
         console.log('logging in the user!')
-        // copy and paste from above
         // encrypt the user id via AES
-        // we need to change newUser to user.id.toString bc its NOT a new user
-        const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET) //process.env.SECRET is our 2nd argument
+        const encryptedUserId = cryptojs.AES.encrypt(user.id.toString(), process.env.SECRET) 
         const encryptedUserIdString = encryptedUserId.toString()
         console.log(encryptedUserIdString)
         // store the encrypted id in the cookie of the res obj

@@ -9,9 +9,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-
     <link rel="stylesheet" href="/css/style.css"/>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"> -->
+
+    <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJWWmP+nqKr/n6Ci/56foP8AAAD/AAAA/wAAAP8yMzT9AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8DAwP/tLW2/7Cxsv+trq//qKmq/wAAAP8AAAD/AAAA/zEyM/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/wsPE/72+wP+7vb//u7y+/7q8vv+vsbL/AAAA/wAAAP8AAAD/e3x+/wAAAAAAAAAAAAAAAAICAv8AAAD/uru8/9zd3f/U1dX/zc7P/8vMzf/Iycv/vr/B/8PEx/+/wcL/vb7A/6WmqP+Tk5T8AAAAAAAAAAAAAAD/5ebn//Dx8f/t7+//6erq/+Tl5v/h4uL/2Nna/9HS0//Oz9L/zs/R/8rLzf/Cw8X/paeo/wAAAADMzc7/5ufp//n6+v///////////+fp6v80Nzn/AAAA/wAAAP/Y2dv/2Nnb/9jZ2//W2Nn/0tPV/76/wf8AAAAA2tzd/+nq7P/3+Pj//v38//7+/v8AAAD/AAAA/wAAAP8AAAD/6Onq/+Dh4v/h4uT/4OHi/9rb3f8AAAD/oaOl7Nze3//q6+z/9PX1//7+/f/4+Pn/AAAA/wAAAP8AAAD/AAAA/wAAAP/i4+T/5ufp/+Xn6P/Cw8T/BQUF/7a3uPzj5Ob/6+zt//Hx8//7+/v/9PX1/wAAAP8AAAD/AAAA/wAAAP97fH3//////+jp6v/a3d7/AAAA/wAAAP8AAAAAAAAAAC8xMf/t7vD/7O7w//X29//Fx8j/AAAA/wAAAP8AAAD/9vf3//n6+//z9PT/7O3u/wAAAP8AAAD/AAAAAAAAAAAnKSn/hoiK//b29//4+fj//fz7//v7+//g4uP/+Pj5//n5+f/19vb/8vT0/+rr7f9wcXP/y8zO/wAAAAAAAAAAAAAAACIkJP/v8PH/9PP1//b39//6+vr/9fb2//Hy9P/19fX/9fX1//Hy8//j5Ob/zM3O/wAAAAAAAAAAAAAAAAAAAACZmpsh3d/g/+bn6f/p6uz/6+3u/+nq7P/p6+3/6+zt/+fo6v/f4eL/0dLU/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADR09T/2tzd/93f4P+/wcP/AQEA/wEBAf8BAQH/zs/R/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADV1tf/U1NV/1RVVf+pq6v6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAPAPAADgBwAAwAMAAIABAACAAQAAAAEAAAAAAAAAAAAAAAEAAIABAACAAQAAwAMAAOAHAADwDwAA/D8AAA==" rel="icon" type="image/x-icon" />
 
 </head>
 <body>
@@ -22,24 +22,21 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav ms-auto">
                     <% if(user) { %>
                     <a class="nav-link" href="/leagues">Leagues</a>
-                    <a class="nav-link" href="/teams/">Teams</a>
-                    <a class="nav-link" href="/players">Players</a>
                     <a class="nav-link" href="/user/nominees">Nominees</a>
                     <a class="nav-link" href="/user/logout">Logout</a>
                     <% } else { %>
                     <a class="nav-link" href="/user/login">Log In</a>
                     <a class="nav-link" href="/user/signup">Sign Up</a>
                     <% } %>
-                    <!-- need to use squid tags to input an if then statement here -->
                 </div>
             </div>
         </div>
     </nav>
-    
-    <h1></h1>
+
+   <h4></h4>
 
     <%- body %>
     
