@@ -49,15 +49,24 @@
 
 
 
-<!-- notes will be posted here -->
+<!-- comments will be posted here -->
 <h2>COMMENTSSSSSSSS</h2>
 <div class="comment">
-<% comment.forEach(element => { %>
-<li><%= element.comment %></li>
-<% }) %>
+    <% comment.forEach(element => { %>
+    <li><%= element.comment %></li>
+    <!-- delete note button -->
+    <!-- not functional -->
+    <form action="/user/nominees/<%= nominee.id %>/comment/?_method=DELETE" method="POST">
+        <input id="note-delete-button" type="submit" value="Delete Note">
+        <input hidden type="text" value="<%= element.id %>" name="commentId">
+        <input hidden type="text" value="<%= element.comment %>" name="comment">
+    </form>
+    <% }) %>
 </div>
 
+
 <!-- text area to add notes -->
+<!-- functional -->
 <form action="/user/nominees/comment" method="POST">
 <div class="form-group">
     <label for="comment">Add Your Personal Notes Here</label>
@@ -84,20 +93,6 @@
     <input type="submit" value="Delete Nominee">
 </form>
 
-      
-<!-- delete note button -->
-<!-- not functional -->
-<form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
-<input type="submit" value="Delete Notes">
-</form>
 
-
-
-
-<div>
-    <form action="/user/nominees/<%= details['strTeam'] %>/<%= details['strPlayer'] %>/?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Note not functional">
-    </form>
-</div>
 
 

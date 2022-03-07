@@ -18,6 +18,7 @@ app.use('/',express.static('public'))
 app.use(ejsLayouts) // tell express we want to use layouts
 app.use(cookieParser()) // gives us access to req.cookies
 app.use(methodOverride('_method'))
+app.get('/premier-league.html', function(req, res, next) {res.render('teams/teams.ejs') })
 app.use(express.urlencoded({extended:false})) // body parser (to make req.body work)
 
 // CUSTOM LOGIN MIDDLEWARE

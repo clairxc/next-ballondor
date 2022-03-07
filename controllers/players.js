@@ -50,6 +50,21 @@ router.get("/:teamname/:playername", (req, res) => {
   });
 })
 
+// display missing information as N/A
+// if (details === true) {
+//   details.forEach()
+// } else {
+//   details.details = 'N/A'
+
+// // or
+// if (details != null) {
+//   res.render()
+// } else {
+//   res.render("players/playerdetails.ejs", {
+//     details: details
+//   })
+// }
+
 
 
 // export all these routes to the entry point file

@@ -106,6 +106,14 @@ h1 {
     text-align: center;
 }
 
+#404 {
+    display: flex;
+}
+
+#note-delete-button {
+    background-color: hotpink;
+    border-radius: 10px;
+}
 
 
 /* .page_404 {

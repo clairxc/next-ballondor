@@ -92,21 +92,7 @@ router.get("/:nomineeId", async (req, res) => {
   });
 })
 
-
-// DELETE a nominee
-// router.delete('/:name', (req, res) => {
-//   db.nominee.destroy({
-//     where: { name: req.params.name }
-//   }) .then( deletedNominee => {
-//     console.log(deletedNominee)
-//     res.redirect('/user/nominees')
-//   }).catch(err => {
-//     console.log(err)
-//   })
-// })
-
-// DELETE specific nominee
-// ther might be an issue with this due to how its set up-- bc its set up to delete based on the playername and not the id
+// DELETE specific nominee and redirect to nominee list page
 router.delete("/:nomineeId", async (req, res) => {
   try {
     const foundNominee = await db.user_nominee.findOne({
@@ -121,7 +107,6 @@ router.delete("/:nomineeId", async (req, res) => {
     res.status(400).render('main/404.ejs')
   }
 })
-
 
 
 // adding/deleting notes/comments
@@ -142,6 +127,23 @@ router.post('/comment', (req, res) => {
     res.status(400).render('main/404.ejs')
   })
 })
+
+// delete note and redirect to same page (stay on page)
+router.delete("/:nomineeId/comment", async (req, res) => {
+  try {
+    const foundNote = await db.note.findOne({
+      where: {
+        id: req.body.commentId
+      }
+    })
+    await foundNote.destroy()
+    res.redirect(`/user/nominees/${req.params.nomineeId}`)
+  } catch (error) {
+    res.status(400).render('main/404.ejs')
+  }
+})
+
+
 
 module.exports = router;
 
