@@ -1,17 +1,25 @@
 body {
-    background-color: #191c1f;
+    background-color: #262626;
     color: white;
 }
 
 h1, h2 {
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 ul {
     padding-bottom: 1.5rem;
 }
+
+li {
+    padding-bottom: .75rem;
+}
+
+/* div {
+    padding: 0 10rem 0 10rem;
+} */
 
 /* .img-size {
     width: auto;
@@ -34,6 +42,18 @@ ul {
     text-align: center;
 }
 
+.league-list {
+    padding-top: 2rem;
+    font-size: 50px;
+}
+
+.top-league-logos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 2rem 0 2rem;
+}
+
 .league-card {
     color: white;
     border: white;
@@ -48,7 +68,7 @@ ul {
 
 .card {
     padding: 1rem;
-    background-color: #191c1f;
+    background-color: #262626;
     color: white;
     display: flex;
     align-items: center;
@@ -66,26 +86,26 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #191c1f;
+    background-color: #262626;
     border-color: goldenrod;
     text-transform: uppercase;
 }
 
 .btn-primary:hover {
     background-color: goldenrod;
-    color: #191c1f;
+    color: #262626;
     border: none;
 }
 
 .btn-primary:active {
-    background-color: #191c1f;
+    background-color: #262626;
     /* box-shadow: 0 5px goldenrod; */
     transform: translateY(4px);
     border: none;
 }
 
 .collapseText {
-    background-color: #191c1f;
+    background-color: #262626;
 }
 
 .player-card-deck {
@@ -114,11 +134,52 @@ ul {
     border: solid white;
 }
 
+.form-group {
+    padding: 0 0 1rem 2rem;
+}
 
+.form-control {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    border-left: 6px solid goldenrod;
+    background-color: white;
+    color: #262626;
+}
 
+.comment-area {
+    padding: 0 0 .3rem;
+    margin-left: 2rem;
+}
 
+#comment-submit-button {
+    margin-left: 2rem;
+}
 
+.nominee-note-title {
+    text-decoration: underline;
+}
 
+#carouselIndicators {
+    padding: 0 8rem 0 8rem;
+}
+
+#comment-delete-button {
+    font-size: 10px;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+}
+
+#comments {
+    font-size: 10px;
+}
+
+#delete-nominee-button {
+    margin: 1rem;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+}
 
 
 
@@ -127,14 +188,88 @@ ul {
     display: flex;
 }
 
-#note-delete-button {
-    background-color: hotpink;
-    border-radius: 10px;
+#slideshow {
+    margin: 0 auto;
+    padding-top: 20px;
+    height: 22rem;;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-#comments {
-    font-size: 10px;
+.entire-content {
+margin: auto;
+width: 180px;
+perspective: 1000px;
+position: relative;
+padding-top: 50px;
 }
+
+.content-carrousel {
+width: 100%;
+position: absolute;
+float: right;
+animation: rotar 15s infinite linear;
+transform-style: preserve-3d;
+}
+
+.content-carrousel:hover {
+animation-play-state: paused;
+cursor: pointer;
+}
+
+.content-carrousel figure {
+width: 100%;
+height:10rem;;
+border: 1px solid #3b444b;
+overflow: hidden;
+position: absolute;
+}
+
+.content-carrousel figure:nth-child(1) {
+    transform: rotateY(0deg) translateZ(300px); 
+} 
+.content-carrousel figure:nth-child(2) {
+    transform: rotateY(72deg) translateZ(300px); 
+} 
+.content-carrousel figure:nth-child(3) {
+    transform: rotateY(144deg) translateZ(300px); 
+} 
+.content-carrousel figure:nth-child(4) {
+    transform: rotateY(216deg) translateZ(300px); 
+} 
+.content-carrousel figure:nth-child(5) {
+    transform: rotateY(288deg) translateZ(300px); 
+} 
+.content-carrousel figure:nth-child(6) {
+    transform: rotateY(360deg) translateZ(300px); 
+}
+
+.shadow {
+    position: absolute;
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 1px;
+}
+
+.content-carrousel img {
+image-rendering: auto;
+transition: all 300ms;
+width: 100%;
+height: 100%;
+}
+
+.content-carrousel img:hover {
+transform: scale(1.2);
+transition: all 300ms;
+}
+
+@keyframes rotar {
+from {
+transform: rotateY(0deg);
+} to {
+transform: rotateY(360deg);
+}
+}
+
 
 /* .page_404 {
     padding: 40px 0;

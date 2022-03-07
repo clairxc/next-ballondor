@@ -1,9 +1,17 @@
-<h2>Display all details for specific player here</h2>
 
 <!-- try to add carousel here -->
 <div class="player-detail-image">
     <img src="<%= details['strThumb'] %>" class="center" alt="<%= details['strThumb'] %>">
 </div>
+
+<!-- delete nominee button -->
+<form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
+    <div id="delete-nominee-button">
+        <input type="submit" value="Delete Nominee" class="btn btn-primary">
+    </div>
+</form>
+
+<h2>Details for <%= details['strPlayer'] %></h2>
 
 <ul class="details">
     <li> Name:
@@ -51,46 +59,38 @@
 
 
 <!-- comments will be posted here -->
-<h2>Notes</h2>
-<div class="comment">
+<h2 class="nominee-note-title">Notes</h2>
+<div>
     <% comment.forEach(element => { %>
-    <li><%= element.comment %></li>
-    <!-- delete note button -->
-    <!-- not functional -->
-    <form action="/user/nominees/<%= nominee.id %>/comment/?_method=DELETE" method="POST">
-        <input id="note-delete-button" type="submit" value="Delete Note">
+    <div class="comment-area">
+        <li><%= element.comment %></li>
+    </div>    
+</div>
+<!-- delete note button -->
+<form action="/user/nominees/<%= nominee.id %>/comment/?_method=DELETE" method="POST">
+    <div id="comment-delete-button">
+        <input type="submit" id="comment-delete-button" class="btn btn-primary" value="Delete Note">
         <input hidden type="text" value="<%= element.id %>" name="commentId">
         <input hidden type="text" value="<%= element.comment %>" name="comment">
-    </form>
-    <% }) %>
-</div>
+    </div>
+</form>
+<% }) %>
 
 
 <!-- text area to add notes -->
 <!-- functional -->
 <form action="/user/nominees/comment" method="POST">
-<div class="form-group">
-    <label for="comment">Add Your Own Notes Here</label>
-    <p id="comments">* Don't worry, only you can see these notes *</p>
-    <input type="text" class="form-control" id="comment" name="comment" required>
-
     <div class="form-group">
-    <input type="hidden" class="form-control" id="userId" name="userId" value="<%= user.id %>">
-    </div>
+        <label for="comment">Add Your Own Notes Here</label>
+        <p id="comments">* Don't worry, only you can see these notes *</p>
+        <input type="text" class="form-control" id="comment" name="comment" required>
 
-    <div class="form-group">
-    <input type="hidden" class="form-control" id="nomineeId" name="nomineeId" value="<%= nominee.id %>">
-    </div>
+        <input type="hidden" id="userId" name="userId" value="<%= user.id %>">
+        <input type="hidden"id="nomineeId" name="nomineeId" value="<%= nominee.id %>">
+        <input type="hidden" id="email" name="email" value="<%= user.email %>">
 
-    <div class="form-group">
-    <input type="hidden" class="form-control" id="email" name="email" value="<%= user.email %>">
     </div>
-</div>
-<input type="submit" class="btn btn-primary">
-</form>
-
-<!-- delete nominee button -->
-<!-- functional -->
-<form action="/user/nominees/<%= nominee.id %>/?_method=DELETE" method="POST">
-    <input type="submit" value="Delete Nominee">
+    <div id="comment-submit-button">
+        <input type="submit" value="Post Note" class="btn btn-primary">
+    </div>
 </form>

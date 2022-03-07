@@ -8,13 +8,35 @@
     </form>
 </div> -->
 
+
+
 <!-- <h2 class="league-h2">League Results:</h2> -->
 <!-- when user clicks on a league, user should be taken to a page that displays all the teams in that specific league -->
 
+<section id="slideshow">
+    <div class="entire-content">
+        <div class="content-carrousel">
+        <figure class="shadow"><img src="https://chickennpickle.com/wichita/wp-content/uploads/sites/4/2020/06/Premier-League-logo-2.png"/></figure>
+        <figure class="shadow"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRys3pfI6vtyoR5abtVaeRkdyWQU2TGZ750521GvTRSMF0bvgqobkZDejUHtQimuh_cts0&usqp=CAU"/></figure>
+        <figure class="shadow"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Serie_a_2021.svg/300px-Serie_a_2021.svg.png"/></figure>
+        <figure class="shadow"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ligue_1_Uber_Eats_logo.svg/260px-Ligue_1_Uber_Eats_logo.svg.png"/></figure>
+        <figure class="shadow"><img src="https://1000logos.net/wp-content/uploads/2019/01/Spanish-La-Liga-logo.jpg"/></figure>
+        </div>
+    </div>
+</section>
+<!-- <div class="container">
+    <div class="carousel">
+        <img src="https://chickennpickle.com/wichita/wp-content/uploads/sites/4/2020/06/Premier-League-logo-2.png"  alt="premier-league" width="200" height="200">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRys3pfI6vtyoR5abtVaeRkdyWQU2TGZ750521GvTRSMF0bvgqobkZDejUHtQimuh_cts0&usqp=CAU" width="200" height="200" alt="bundesliga">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Serie_a_2021.svg/300px-Serie_a_2021.svg.png" width="200" height="200" alt="serie-a">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Ligue_1_Uber_Eats_logo.svg/260px-Ligue_1_Uber_Eats_logo.svg.png" width="230" height="200" alt="ligue-1">
+        <img src="https://1000logos.net/wp-content/uploads/2019/01/Spanish-La-Liga-logo.jpg" width="300" height="200" alt="la-liga">
+    </div>
+</div> -->
 
 <% soccerLeagues.forEach(league => { %>
-    <div class="list-group">
-        <a href="/teams/<%= league.strLeague %>" class="list-group-item list-group-item-action active" aria-current="true">
+    <div class="league-list">
+        <a class="btn btn-primary" href="/teams/<%= league.strLeague %>" role="button">
             <%= league.strLeague %>
         </a>
     </div>
@@ -40,7 +62,4 @@
         <input id="search-btn" type="submit" value="See Results!">
     </div>
 </form>     -->
-
-
-<!-- i want to just display the results below the search bar instead of going to a new page -->
 
