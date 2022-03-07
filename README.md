@@ -138,6 +138,9 @@ router.get("/:name", (req, res) => {
 - [ ] Add ability to watch video highlights on homepage
 - [ ] Display null values as 'N/A'
 
+## Things I Learned
+Imposter syndrom is SO REAL.
+
 
 ## Other Sources:
 - https://www.scoreaxis.com/free-soccer-widgets/
