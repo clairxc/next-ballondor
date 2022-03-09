@@ -52,7 +52,8 @@ Next Best is a full CRUD application that provides the user the ability to view 
 - API key optional (don't need to utilize most features)  
 - To use all the upgraded features, upgrade to become a patreon for $5 by going to this link: https://www.patreon.com/thedatadb 
   - Make sure to choose/specify the correct API when becoming a patreon as this API runs multiple sites
-   <img width="100" alt="image" src="https://user-images.githubusercontent.com/96402339/157138910-6b23d379-2bb0-4832-84c8-f20a8857c2a7.png">
+   <img width="100" alt="image" style="center" src="https://user-images.githubusercontent.com/96402339/157138910-6b23d379-2bb0-4832-84c8-f20a8857c2a7.png">
+   
   - Email you receive when receiving the API key will provide instructions on how to implement the API key
 
 
@@ -93,14 +94,16 @@ Next Best is a full CRUD application that provides the user the ability to view 
 ![image](https://user-images.githubusercontent.com/96402339/157021026-23a177dc-50d3-4aa7-8e39-ff66095b6c11.png)
 ![image](https://user-images.githubusercontent.com/96402339/157021055-6b5c5b37-08dc-4503-a45b-8106085f2696.png)
 
+- Edit Notes
+![image](https://user-images.githubusercontent.com/96402339/157505888-ea8ebfe4-e905-4ce6-a649-d159cd3fe2bd.png)
+![image](https://user-images.githubusercontent.com/96402339/157505907-8ff5ff0a-d0b2-4da9-84ec-effd3f785d0f.png)
 
 ## ERDs
 ![image](https://user-images.githubusercontent.com/96402339/156917303-e72d800a-f714-427f-b034-8efcd2274a20.png)
 
 
 ## RESTful Routing Chart
-![image](https://user-images.githubusercontent.com/96402339/156918146-344ff9ad-2c24-48ee-8828-51c7c6155afe.png)
-
+![image](https://user-images.githubusercontent.com/96402339/157505512-008cbf3f-05ee-4532-9a14-8e6a65e4225e.png)
 
 ## MVP goals
 - [X] Create a welcome page that renders login/sign up
