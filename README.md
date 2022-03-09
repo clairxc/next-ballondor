@@ -7,9 +7,11 @@
 ## Deployed App
 https://next-best-ballondor.herokuapp.com/
 
+
 ## App Description
 The Ballon d'Or is the highest individual honor in football/soccer, recognizing the best players.
 Next Best is a full CRUD application that provides the user the ability to view top 5 leagues (because let's be honest, the winner will come from one of these five), all teams in specific league, all players in specific team, and player details in order to predict who they think will win the next coveted Ballon d'Or.
+
 
 ## User Stories
 - As a user, I want to predict and keep track of who I think will win the next ballon d'or 
@@ -17,7 +19,8 @@ Next Best is a full CRUD application that provides the user the ability to view 
 - As a user, once I add a player to my list of nominees, I want to be redirected to my nominees page
 - As a user, I want to be able to view the team performances, rankings, player rankings, player statistics/details
 
-## Install
+
+## Installation
 1. Fork and clone this repo
 2. In the terminal, run ```npm i``` and install the following packages:
   - ```axios```
@@ -33,10 +36,25 @@ Next Best is a full CRUD application that provides the user the ability to view 
   - ```sequelize```
   - ```sequelize-cli```
 3. Open code in desired code editor
+4. OPTIONAL: request an API key to utilize more information, but not necessary to do basic/free queries
+5. Create a ```.env``` file and copy your API key into the file, like so:
+
+   ```js
+   SECRET='i ate ice cream for breakfast'
+   SPORTS_API_KEY='insertPrivateApiKeyHere'
+   PORT=portYoureRunningOn
+   ```
+   - No need to create and insert an API key if you do not request one, just use the one the API already embeds in the url
 
 ## API
-- THESPORTSDB
-  - API key optional (don't need to utilize most features)  
+- THESPORTSDB: 
+  - https://thesportsdb.com/
+- API key optional (don't need to utilize most features)  
+- To use all the upgraded features, upgrade to become a patreon for $5 by going to this link: https://www.patreon.com/thedatadb 
+  - Make sure to choose/specify the correct API when becoming a patreon as this API runs multiple sites
+   <img width="100" alt="image" src="https://user-images.githubusercontent.com/96402339/157138910-6b23d379-2bb0-4832-84c8-f20a8857c2a7.png">
+  - Email you receive when receiving the API key will provide instructions on how to implement the API key
+
 
 ## Tech Stack
 - Postgres
@@ -79,15 +97,19 @@ Next Best is a full CRUD application that provides the user the ability to view 
 ## ERDs
 ![image](https://user-images.githubusercontent.com/96402339/156917303-e72d800a-f714-427f-b034-8efcd2274a20.png)
 
+
 ## RESTful Routing Chart
 ![image](https://user-images.githubusercontent.com/96402339/156918146-344ff9ad-2c24-48ee-8828-51c7c6155afe.png)
+
 
 ## MVP goals
 - [X] Create a welcome page that renders login/sign up
 - [X] Create a home page that lists all teams and all players
 - [X] Create a page that lists all "favorited" nominees
 - [X] Create a page displaying specific player details/stats
-- [X] Allow user to add "personal notes/comments" to each nominee
+- [X] Allow user to add "personal notes/comments" for each nominee
+- [X] Allow user to edit their personal notes/comments for each nominee
+
 
 ## Code Highlights
 ```js 
@@ -138,12 +160,13 @@ router.get("/:name", (req, res) => {
 - [ ] Add ability to watch video highlights on homepage
 - [ ] Display null values as 'N/A'
 
+
 ## Things I Learned
-Imposter syndrom is SO REAL.
+Imposter syndrome is SO REAL.
 
 
 ## Other Sources:
 - https://www.scoreaxis.com/free-soccer-widgets/
 
 
-P.S. Thank you to all my peers and instructors for helping me complete this project 😬 I couldn't have made it without you all!
+P.S. Thank you to all my peers and instructors for helping me complete this project 😬 I couldn't have done it without you all!
