@@ -1,0 +1,8 @@
+<div class="edit-form">
+    <form action="/user/nominees/<%= comment.nomineeId %>/<%= comment.id %>/?_method=PUT" method="POST">
+        <label for="review"> <h2>Edit Note: </h2> </label> <br>
+    
+        <textarea name="comment" id="comment" cols="100" rows="10"> <%= comment.comment %> </textarea> <br>
+        <input type="submit" class="btn btn-primary" value="Edit Note">
+    </form>
+</div>

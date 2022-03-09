@@ -68,9 +68,17 @@ a:hover {
 
 .league-list {
     padding-top: 1.1rem;
-    padding: 1rem;
-    display: inline-block;
-    margin: 5rem 2rem 1rem 2.2rem;
+    /* padding: 1rem; */
+    /* display: inline-block;
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: justify;
+    margin: 5rem 2rem 1rem 8rem; */
+}
+
+.league-list-container {
+    display: flex;
+    justify-content: space-around;
 }
 
 .top-league-logos {
@@ -217,6 +225,12 @@ a:hover {
     padding-top: 2rem;
 }
 
+.edit-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 #carouselIndicators {
     padding: 0 8rem 0 8rem;
 }
@@ -227,6 +241,11 @@ a:hover {
     margin-left: 2rem;
 }
 
+#comment-edit-button {
+    font-size: 15px;
+    margin-left: 4rem;
+    display: inline-block;
+}
 
 #comments {
     font-size: 15px;

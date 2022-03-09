@@ -104,6 +104,40 @@ router.post('/comment', (req, res) => {
   })
 })
 
+// show all comments of the user for that specific nominee
+// router.get("/edit/:nomineeId/comment", (req, res) => {
+//   res.render('/comment', { 
+//     comment: req.body.comment
+//   })
+// })
+
+
+router.get('/:nomineeId/:commentId/edit', async (req, res) => {
+  try {
+    const comment = await db.note.findByPk(req.params.commentId)
+    res.render('user/edit.ejs', {
+      comment: comment
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+// edit/update notes
+router.put("/:nomineeId/:commentId", async (req, res) => {
+  try {
+    const updateComment = await db.note.findByPk(req.params.commentId) //tried using .update
+    updateComment.set({
+      comment: req.body.comment
+      })
+    await updateComment.save()
+    res.redirect(`/user/nominees/${req.params.nomineeId}`) 
+    // want to redirect back to nominee details page
+  } catch (error) {
+    res.status(400).render('main/404.ejs')
+  }
+})
+
 // delete note and redirect to same page (stay on page)
 router.delete("/:nomineeId/comment", async (req, res) => {
   try {
@@ -118,5 +152,6 @@ router.delete("/:nomineeId/comment", async (req, res) => {
     res.status(400).render('main/404.ejs')
   }
 })
+
 
 module.exports = router;

@@ -76,6 +76,10 @@
     </div>    
 </div>
 
+<!-- edit button -->
+<a href="/user/nominees/<%= nominee.id %>/<%= element.id %>/edit" ><button class="btn btn-primary" id="comment-edit-button">EDIT NOTE</button></a>
+
+<!-- comment delete button -->
 <form action="/user/nominees/<%= nominee.id %>/comment/?_method=DELETE" method="POST">
     <div id="comment-delete-button">
         <input type="submit" id="comment-delete-button" class="btn btn-primary" value="Delete Note">
@@ -85,6 +89,7 @@
 </form>
 <% }) %>
 
+<!-- post note button -->
 <form action="/user/nominees/comment" method="POST">
     <div class="form-group notes-here">
         <label id="notes-here" for="comment">Add Your Own Notes Here</label>

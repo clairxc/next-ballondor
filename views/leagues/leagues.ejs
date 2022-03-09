@@ -12,10 +12,12 @@
     </div>
 </section>
 
-<% soccerLeagues.forEach(league => { %>
-    <div class="league-list">
-        <a class="btn btn-primary" href="/teams/<%= league.strLeague %>" role="button">
-            <%= league.strLeague %>
-        </a>
-    </div>
-<% }) %>
+<div class="league-list-container">
+    <% soccerLeagues.forEach(league => { %>
+        <div class="league-list">
+            <a class="btn btn-primary" href="/teams/<%= league.strLeague %>" role="button">
+                <%= league.strLeague %>
+            </a>
+        </div>
+    <% }) %>
+</div>
