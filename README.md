@@ -40,9 +40,9 @@ Next Best is a full CRUD application that provides the user the ability to view 
 5. Create a ```.env``` file and copy your API key into the file, like so:
 
    ```js
-   SECRET='i ate ice cream for breakfast'
-   SPORTS_API_KEY='insertPrivateApiKeyHere'
-   PORT=portYoureRunningOn
+   SECRET=<canBeAnything>
+   SPORTS_API_KEY=<insertPrivateApiKeyHere>
+   PORT=<portYoureRunningOn>
    ```
    - No need to create and insert an API key if you do not request one, just use the one the API already embeds in the url
 
