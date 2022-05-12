@@ -170,6 +170,3 @@ Imposter syndrome is SO REAL.
 
 ## Other Sources:
 - https://www.scoreaxis.com/free-soccer-widgets/
-
-
-P.S. Thank you to all my peers and instructors for helping me complete this project 😬 I couldn't have done it without you all!
